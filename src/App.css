@@ -1,8 +1,9 @@
-.App-header {
+.App {
   background-color: #800000;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   color: white;
 }
+
+/* .h-100 {
+  height: 100%;
+} */
