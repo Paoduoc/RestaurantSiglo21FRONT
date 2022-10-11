@@ -6,6 +6,7 @@ import DisheService, { getAllDishes } from '../../services/disheService'
 import { useDispatch } from 'react-redux';
 import { setAllDishes, setModalCrudVisibility } from '../../store/slices/disheSlice'
 import Select from 'react-select';
+import Creatable, { useCreatable } from 'react-select/creatable'
 
 export const DisheForm = ({
   _id,
@@ -39,7 +40,7 @@ export const DisheForm = ({
       price,
       preparation,
       preparationTime,
-      ingredients,
+      ingredients: ingredients.map(i => i.value),
     })
     if (response.status >= 400 && response.status <= 499) {
       alert.show(response.description, {
@@ -66,11 +67,11 @@ export const DisheForm = ({
         <label className='form-label'>Tiempo Preparacion</label>
         <input className='form-control' type="text" value={preparationTime} onChange={(event) => setPreparationTime(event.target.value)} />
         <label className='form-label'>Ingredientes</label>
-        <input className='form-control' type="text" value={ingredients} onChange={(event) => setIngredients(event.target.value)} />
-        <Select
+        <Creatable
           value={ingredients}
           onChange={setIngredients}
           options={[]}
+          isMulti={true}
         />
         
         <button
