@@ -10,6 +10,8 @@ import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css'
+
 
 axios.defaults.baseURL = 'http://localhost:8080/api/v1/';
 axios.defaults.headers.common['Content-Type'] = 'application/json';

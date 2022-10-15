@@ -6,7 +6,7 @@ import {
   NavLink,
   useNavigate
 } from "react-router-dom";
-import { Home } from "./Home";
+import Home from "./Home.js";
 import { InternalMenu } from "./InternalMenu";
 
 import Login from "./Login";
