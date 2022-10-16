@@ -16,6 +16,7 @@ const Home = (props) => {
         <title>E-Restaurant XXI</title>
         <meta property="og:title" content="Travel Agency" />
       </Helmet>
+      <br></br>
       <div className="home-top-container">
         <div className="home-hero">
           <div className="home-content-container">

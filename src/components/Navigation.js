@@ -10,11 +10,13 @@ import Home from "./Home.js";
 import { InternalMenu } from "./InternalMenu";
 
 import Login from "./Login";
-import { Marco } from "./Marco/Marco";
+import  Tables  from "./Tables/Tables";
 import { setUser, setToken, logout } from "../store/slices/userSlice"
 import { UserCrud } from './UserCrud/UserCrud';
 import { ProductCrud } from './ProductCrud/ProductCrud';
 import { DisheCrud } from './DisheCrud/DisheCrud';
+import './Navigation.css'
+
 
 export const Navigation = () => {
   const dispatch = useDispatch()
@@ -46,6 +48,7 @@ export const Navigation = () => {
 
   return (
     <>
+
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">Restaurante XXI</a>
@@ -55,14 +58,15 @@ export const Navigation = () => {
                 <NavLink className="nav-link" to="/internal-menu">Menu</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/marco">Marco</NavLink>
+                <NavLink className="nav-link" to="/Tables">Mesitas</NavLink>
               </li>
+              
             </ul>
           </div>
 
           {
             !token ?
-              <a className="btn btn-outline-success" href="/login" role="button">Iniciar sesion</a> :
+              <a className="lol" href="/login" role="button">Iniciar sesion</a> :
               (
                 <div style={{ color: 'black' }}>
                   <span style={{ 'marginRight': '10px' }}>Bienvenid@ { user?.nombre }</span>
@@ -81,7 +85,7 @@ export const Navigation = () => {
 
       <Routes>
         <Route path="/login" element={ <Login/> } />
-        <Route path="/marco" element={ <Marco/> } />
+        <Route path="/Tables" element={ <Tables/> } />
         <Route path="/internal-menu" element={ <InternalMenu/> } />
         <Route path="/user-crud" element={ <UserCrud/> } />
         <Route path="/product-crud" element={ <ProductCrud/> } />
