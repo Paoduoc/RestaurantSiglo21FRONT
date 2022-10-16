@@ -16,7 +16,7 @@ export const InternalMenu = () => {
         <button type="button" className='btn btn-primary mt-20' onClick={() => goTo('/user-crud')}>Mantenedor de usuarios</button>
         <button type="button" className='btn btn-primary mt-20' onClick={() => goTo('/product-crud')}>Mantenedor de productos</button>
         <button type="button" className='btn btn-primary mt-20' onClick={() => goTo('/dishe-crud')}>Mantenedor de platos</button>
-        <button type="button" className='btn btn-primary mt-20'>Boton2</button>
+        <button type="button" className='btn btn-primary mt-20' onClick={() => goTo('/table-crud')}>Mantenedor de mesas</button>
       </div>
     </div>
   )

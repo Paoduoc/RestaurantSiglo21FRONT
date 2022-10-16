@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Switch from "react-switch";
 import { useDispatch, useSelector, } from 'react-redux';
 import { setAllDishes, setFormType, setModalCrudVisibility, setSelectedDishe } from '../../store/slices/disheSlice';
-import { getAllBodegas } from '../../services/bodegaService';
 
 export const DisheList = () => {
 
@@ -21,17 +20,9 @@ export const DisheList = () => {
   const handleGetAllDishes = async () => {
     // desde la bodega sacamos los disheos con sus gramos
     const responseDishe = await getAllDishes()
-    const responseBodega = await getAllBodegas()
     
-    if (responseDishe.status === 200 && responseBodega.status === 200) {
-      const disheMerged = responseDishe.msg.map(p => {
-        const pBodega = responseBodega.msg.find(pBodega => pBodega.nombreDisheo === p.nombreDisheo)
-        return {
-          ...pBodega,
-          ...p,
-        }
-      })
-      dispatch(setAllDishes(disheMerged))
+    if (responseDishe.status === 200) {
+      dispatch(setAllDishes(responseDishe.msg))
     }
   }
 

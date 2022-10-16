@@ -16,7 +16,7 @@ import { UserCrud } from './UserCrud/UserCrud';
 import { ProductCrud } from './ProductCrud/ProductCrud';
 import { DisheCrud } from './DisheCrud/DisheCrud';
 import './Navigation.css'
-
+import { TableCrud } from './TableCrud/TableCrud';
 
 export const Navigation = () => {
   const dispatch = useDispatch()
@@ -90,6 +90,7 @@ export const Navigation = () => {
         <Route path="/user-crud" element={ <UserCrud/> } />
         <Route path="/product-crud" element={ <ProductCrud/> } />
         <Route path="/dishe-crud" element={ <DisheCrud/> } />
+        <Route path="/table-crud" element={ <TableCrud/> } />
         <Route path="/" element={ <Home/> } />
       </Routes>
     </>

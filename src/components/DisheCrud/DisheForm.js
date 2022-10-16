@@ -49,7 +49,7 @@ export const DisheForm = ({
     }
     if (response.status >= 200 && response.status <= 201) {
       updateAllDishes()
-      alert.show(`Disheo ${formType === 'create' ? 'creado' : 'modificado'} exitosamente!`, {
+      alert.show(`Plato ${formType === 'create' ? 'creado' : 'modificado'} exitosamente!`, {
         type: 'success'
       })
       dispatch(setModalCrudVisibility(false))
