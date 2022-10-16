@@ -16,14 +16,6 @@ function Login() {
   const handleSetPassword = (event) => {
     setPassword(event.target.value)
   }
-
-  // useEffect(() => {
-  //   fetch("http://localhost:8080/api/v1/users")
-  //     .then(response => response.json())
-  //     .then(response => {
-  //       setTotalUsers(response.msg.length)
-  //     })
-  // })
   
   const login = () => {
     fetch("http://localhost:8080/api/v1/auth/login", {
@@ -53,7 +45,7 @@ function Login() {
         <div className='flex centered'>
           <h1>Iniciar sesión</h1>
         </div>
-        <label className='form-label'>Correo</label>
+        <label className='form-label'>Correo({email})</label>
         <input className='form-control' type="text" value={email} onChange={handleSetEmail} />
 
         <label className='form-label'>Contraseña</label>
