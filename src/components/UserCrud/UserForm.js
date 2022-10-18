@@ -32,6 +32,7 @@ export const UserForm = ({
   const [birthdate, setBirthdate] = useState(new Date(fechaCumpleannos))
   const [gender, setGender] = useState(genero)
   const [roll, setRoll] = useState(rol)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSetRoll = (event) => {
     setRoll(event.target.value)
@@ -45,7 +46,8 @@ export const UserForm = ({
   }
 
   const handleAction = async () => {
-    console.log(formType)
+    if (isLoading === true) return
+    setIsLoading(true)
     const response = await UserService[`${formType}User`]({
       _id,
       name,
@@ -58,7 +60,6 @@ export const UserForm = ({
       rol: roll,
       gender,
     })
-    console.log(response)
     if (response.status >= 400 && response.status <= 499) {
       alert.show(response.description, {
         type: 'error'
@@ -71,6 +72,7 @@ export const UserForm = ({
       })
       dispatch(setModalCrudVisibility(false))
     }
+    setIsLoading(false)
   }
 
   return (

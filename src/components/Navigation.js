@@ -28,7 +28,6 @@ export const Navigation = () => {
   useEffect(() => {
     // obtenemos el usuario
     const user = localStorage.getItem('user')
-    console.log(user)
     // obtenemos el token
     const token = localStorage.getItem('token')
     // lo agregamos al estado global de la app solo si existe en el localstorage
@@ -48,7 +47,6 @@ export const Navigation = () => {
 
   return (
     <>
-
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">Restaurante XXI</a>
@@ -56,9 +54,6 @@ export const Navigation = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/internal-menu">Menu</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/Tables">Mesitas</NavLink>
               </li>
               
             </ul>
@@ -91,6 +86,7 @@ export const Navigation = () => {
         <Route path="/product-crud" element={ <ProductCrud/> } />
         <Route path="/dishe-crud" element={ <DisheCrud/> } />
         <Route path="/table-crud" element={ <TableCrud/> } />
+        <Route path="/reservation" element={ <Tables/> } />
         <Route path="/" element={ <Home/> } />
       </Routes>
     </>

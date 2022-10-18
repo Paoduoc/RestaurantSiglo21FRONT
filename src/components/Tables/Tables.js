@@ -1,37 +1,186 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { endReservation, getAllReservations, putOvercrowding, startReservation } from '../../services/reservationService'
+import { getAllTables } from '../../services/tableService'
 
 import './Tables.css'
 
 const Tables = (props) => {
+
+  const [allTables, setAllTables] = useState([])
+  const [allReservations, setAllReservations] = useState([])
+  const [finalTablesState, setFinalTableState] = useState([])
+  const [tablesLoaded, setTablesLoaded] = useState(false)
+  const [reservationsLoaded, setReservationsLoaded] = useState(false)
+
+  const filterDisabledTables = (allTables) => {
+    const enabledTables = allTables.filter(table => table.estado)
+    console.log(enabledTables)
+    return enabledTables
+  }
+
+  const handleGetAllTables = async () => {
+    const { msg: tables, status } = await getAllTables()
+    if (status === 200) {
+      // aqui filtramos las mesas desactivadas
+      const enabledTables = filterDisabledTables(tables)
+      setAllTables(enabledTables)
+      setTablesLoaded(true)
+    }
+  }
+
+  // aqui cargamos todas las mesas
+  useEffect(() => {
+    handleGetAllTables()
+  }, [])
+
+  const handleGetAllReservations = async () => {
+    const { msg, status } = await getAllReservations()
+    if (status === 200) {
+      setAllReservations(msg.reserva)
+      setReservationsLoaded(true)
+    }
+  }
+
+  // aqui cargamos todas las reservas
+  useEffect(() => {
+    handleGetAllReservations()
+  }, [])
+
+  const filterOldReservations = () => {
+    const activeReservations = allReservations.filter(reservation => {
+      if (reservation.reservada === true || reservation.sobrecupo === true) {
+        return reservation
+      }
+    })
+    setAllReservations(activeReservations)
+  }
+
+  // aqui nos encargamos de filtrar las reservas que no sirven
+  // y mezclar las mesas con su reserva respectiva
+  useEffect(() => {
+    if (tablesLoaded  && reservationsLoaded) {
+      // aqui sacamos las reservas que no estan reservadas ni con sobrecupo
+      // en otras palabras limpias las reservas viejas
+      filterOldReservations()
+      // aqui mezclamos mesas + reservas
+      const tablesMerged = allTables.map(table => {
+        const reservation = allReservations.find(reservation => reservation.mesa === table._id)
+        if (reservation) {
+          return {
+            ...table,
+            ...reservation
+          }
+        }
+        return {
+          ...table,
+          reservada: false,
+          sobrecupo: false
+        }
+      })
+      setFinalTableState(tablesMerged)
+    }
+  }, [tablesLoaded, reservationsLoaded])
+
+  
+
+  const handleStartReservation = async (tableId) => {
+    const response = await startReservation({ tableId })
+    const table = finalTablesState.find(table => table._id === tableId)
+    table.reservada = true
+  }
+
+  const handleEndReservation = async (_id) => {
+    const response = await endReservation({
+      _id
+    })
+    console.log(response)
+  }
+
+  const handlePutOvercrowding = async (_id, overcrowding) => {
+    const response = await putOvercrowding({
+      _id,
+      overcrowding
+    })
+    console.log(response)
+  }
+
+  const tableStateClass = (table) => {
+    if (table.reservada) {
+      return {
+        class: 'tables-container4',
+        statusText: 'Reservada'
+      }
+    }
+    if (table.reservada) {
+      return {
+        class: 'tables-container6',
+        statusText: 'Sobrecupo'
+      }
+    }
+    return {
+      class: 'tables-container5',
+      statusText: 'Libre'
+    }
+  }
+
+  const startReservationBtn = (table) => (
+    <button className="tables-button1 button" onClick={() => handleStartReservation(table._id)}>
+      <span>
+        <span>Empezar Reserva</span>
+        <br></br>
+      </span>
+    </button>
+  )
+
+  const endReservationBtn = (table) => (
+    <button className="tables-button1 button" onClick={() => handleEndReservation(table._id)}>
+      <span>
+        <span>Finalizar Reserva</span>
+        <br></br>
+      </span>
+    </button>
+  )
+
+  const putOvercrowdingBtn = (table) => (
+    <button className="tables-button1 button" onClick={() => handlePutOvercrowding(table._id, !table.sobrecupo)}>
+      <span>
+        <span>Sobrecupo</span>
+        <br></br>
+      </span>
+    </button>
+  )
+
   return (
     <div className="tables-container">
       <div className="tables-container1">
         <div className="tables-container2">
           <h1>Mesas del Restaurante</h1>
-          <span className="tables-text01">
-            <span>
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                lorem lorem, malesuada in metus vitae, scelerisque accumsan
-                ipsum.
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-            </span>
-          </span>
         </div>
         <div className="tables-container3">
-          <div className="tables-container4">
+          {
+            finalTablesState.map(table => (
+              <div className={tableStateClass(table).class} key={table._id}>
+                <span className="tables-text09">Mesa { table.numMesa }</span>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/638/638557.png?w=740&t=st=1665894897~exp=1665895497~hmac=dde514aff4316753cfd0100d13d29b34f3f897e02d6e138a0e69f1603295d1a1"
+                  alt="image"
+                  className="tables-image1"
+                />
+                <span className="tables-text10">{tableStateClass(table).statusText}</span>
+                <br></br>
+                {
+                  !table.reservada && !table.sobrecupo
+                    ? (startReservationBtn(table))
+                    : ( 
+                      table.reservada 
+                        ? endReservationBtn(table)
+                        : putOvercrowdingBtn(table)
+                    )
+                }
+              </div>
+            ))
+          }
+          {/* <div className="tables-container4">
             <span className="tables-text05">Mesa 1</span>
             <img
               src="https://cdn-icons-png.flaticon.com/512/638/638557.png?w=740&t=st=1665894897~exp=1665895497~hmac=dde514aff4316753cfd0100d13d29b34f3f897e02d6e138a0e69f1603295d1a1"
@@ -44,24 +193,9 @@ const Tables = (props) => {
               <br></br>
             </span>
             <button className="tables-button button">Modificar</button>
-          </div>
-          <div className="tables-container5">
-            <span className="tables-text09">Mesa 1</span>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/638/638557.png?w=740&t=st=1665894897~exp=1665895497~hmac=dde514aff4316753cfd0100d13d29b34f3f897e02d6e138a0e69f1603295d1a1"
-              alt="image"
-              className="tables-image1"
-            />
-            <span className="tables-text10">Disponible</span>
-            <br></br>
-            <button className="tables-button1 button">
-              <span>
-                <span>Reservar</span>
-                <br></br>
-              </span>
-            </button>
-          </div>
-          <div className="tables-container6">
+          </div> */}
+          
+          {/* <div className="tables-container6">
             <span className="tables-text14">Mesa 1</span>
             <img
               img src="https://cdn-icons-png.flaticon.com/512/638/638557.png?w=740&t=st=1665894897~exp=1665895497~hmac=dde514aff4316753cfd0100d13d29b34f3f897e02d6e138a0e69f1603295d1a1"
@@ -71,7 +205,7 @@ const Tables = (props) => {
             <span className="tables-text15">Reservado</span>
             <br></br>
             <button className="tables-button2 button">Quitar Reserva</button>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="tables-container7">

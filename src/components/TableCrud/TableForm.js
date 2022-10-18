@@ -18,6 +18,8 @@ export const TableForm = ({
   const [tableNumber, setTableNumber] = useState(numMesa)
   const [shairAmmount, setShairAmmount] = useState(cantSillas)
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const updateAllTables = async () => {
     const response = await getAllTables()
     if (response.status === 200 ) {
@@ -26,6 +28,8 @@ export const TableForm = ({
   }
 
   const handleAction = async () => {
+    if (isLoading === true) return
+    setIsLoading(true)
     const response = await TableService[`${formType}Table`]({
       _id,
       tableNumber,
@@ -43,6 +47,7 @@ export const TableForm = ({
       })
       dispatch(setModalCrudVisibility(false))
     }
+    setIsLoading(false)
   }
 
   return (

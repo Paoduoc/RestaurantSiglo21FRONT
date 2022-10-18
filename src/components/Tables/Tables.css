@@ -41,7 +41,7 @@
     position: relative;
     align-items: center;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     color: black;
   }
   .tables-container4 {
