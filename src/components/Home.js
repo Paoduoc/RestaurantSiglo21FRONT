@@ -66,24 +66,96 @@ const Home = (props) => {
         </h1>
         <span className="home-text10">Recomendados</span>
         <div className="home-cards-container">
-          <Postres rootClassName="postres-root-class-name"></Postres>
-          <Postres rootClassName="postres-root-class-name"></Postres>
-          <Postres rootClassName="postres-root-class-name"></Postres>
-          <Postres rootClassName="postres-root-class-name"></Postres>
-          <Postres rootClassName="postres-root-class-name"></Postres>
-          <Postres rootClassName="postres-root-class-name"></Postres>
+          <Postres 
+          rootClassName="postres-root-class-name" 
+          image_postres="https://cdn.shopify.com/s/files/1/0492/6711/4133/articles/tiramisu-receta-original.jpg?v=1644419306"
+          PrecioPostre="$4000"
+          descriptionPostre="Galletas bañadas en Licor y cacao"
+          postres="Tiramisu"
+          ></Postres>
+
+          <Postres           
+          rootClassName="postres-root-class-name" 
+          image_postres="https://www.latercera.com/resizer/cJVioFPUTIxZWSwTZIU63KT0UjU=/900x600/smart/cloudfront-us-east-1.images.arcpublishing.com/copesa/HZGWD4HADFG5DABEBJOQCFRDQM.JPG"
+          PrecioPostre="3000"
+          descriptionPostre="Pan remojado en Leche y bañado en caramelo"
+          postres="Colegial"
+          ></Postres>
+
+          <Postres 
+          rootClassName="postres-root-class-name" 
+          image_postres="https://comidaschilenas.com/wp-content/uploads/2019/02/Receta-de-leche-nevadfa-chilena.jpg"
+          PrecioPostre="4500"
+          descriptionPostre="Flan de vainilla con azucar maicena y canela"
+          postres="Leche Nevada"
+          ></Postres>
+
+          <Postres 
+          rootClassName="postres-root-class-name" 
+          image_postres="https://www.gourmet.cl/wp-content/uploads/2018/03/Leche-Asada-Web.jpg"
+          PrecioPostre="5000"
+          descriptionPostre="Leche con huevos, rayadura de limon, azucar, vainilla y caramelo"
+          postres="Leche asada"
+          ></Postres>
+
+          <Postres 
+          rootClassName="postres-root-class-name" 
+          image_postres="https://www.lacocinachilena.tk/wp-content/uploads/2015/05/Brazo-de-reina.jpg"
+          PrecioPostre="4500"
+          descriptionPostre="Queque de vainilla, rellenado con manjar y espolvoreado con azucar con flor"
+          postres="Brazo de Reina"
+          ></Postres>
+
+          <Postres 
+          rootClassName="postres-root-class-name" 
+          image_postres="https://www.diariamenteali.com/medias/Receta-de-Pie-de-lim-n-1900Wx500H?context=bWFzdGVyfHJvb3R8MTY1MTcyfGltYWdlL2pwZWd8aGY3L2gwMC85MDc0MTk1NzkxOTAyL1JlY2V0YS1kZS1QaWUtZGUtbGltw7NuXzE5MDBXeDUwMEh8YjI5NDU4NTNlNjlmNmE2NWQ1MTBhYWYxMjIyNmZjNTM0ZDExNTQyMDY0MWJjZTA2YWY2MzQ4OTRmOTQ0ZDk5OA"
+          PrecioPostre="4500"
+          descriptionPostre="Masa de galleta, cubierta por leche condesada con jugo de limon y merenge"
+          postres="Pie de Limon"
+          ></Postres>
         </div>
       </div>
       <div id="platos" className="home-platos">
         <h1>Platos</h1>
         <span className="home-text12">Recomendados</span>
         <div className="home-cards-container1">
-          <Plato PrecioPlato="$5000"></Plato>
-          <Plato ProductoPlato="Rome"></Plato>
-          <Plato ProductoPlato="Cluj-Napoca"></Plato>
-          <Plato ProductoPlato="Paris"></Plato>
-          <Plato ProductoPlato="Amsterdam"></Plato>
-          <Plato ProductoPlato="Barcelona"></Plato>
+          <Plato 
+          PrecioPlato="$6000" 
+          ProductoPlato="Cazuela de Ave"
+          description_plato="Cazuela de pollo tipica Chilena"
+          image_plato="https://comidaschilenas.com/wp-content/uploads/2020/01/Receta-de-cazuela-de-pollo.jpg"
+          ></Plato>
+          <Plato           
+          PrecioPlato="$7000" 
+          ProductoPlato="Cazuela de Vacuno/Osobuco"
+          description_plato="Cazuela de Vacuno tipica chilena, Puede ser de Osobuco igualmente"
+          image_plato="https://img-global.cpcdn.com/recipes/fadaee2fd7c899a6/400x400cq70/photo.jpg"
+          ></Plato>
+          <Plato          
+          PrecioPlato="$8000" 
+          ProductoPlato="Caldillo de Congrio"
+          description_plato="Caldillo de Congrio, receta del sur de Chile"
+          image_plato="https://virginiademaria.cl/wp-content/uploads/2015/07/virginia-recetas.caldillo.jpg"
+          ></Plato>
+          <Plato          
+          PrecioPlato="$6500" 
+          ProductoPlato="Chaquican"
+          description_plato="Charquican con Huevo y Longaniza"
+          image_plato="https://recetas-rapidas.es/wp-content/uploads/2018/10/charquican-receta-comida-chile.jpg"
+          ></Plato>
+          <Plato           
+          PrecioPlato="$3000" 
+          ProductoPlato="Humitas"
+          description_plato="Humitas caseras con Azucar o tomate a eleccion"
+          image_plato="https://comidaschilenas.com/wp-content/uploads/2022/07/Receta-de-humitas-de-choclo-Comidas-Chilenas.jpg"
+          ></Plato>
+          <Plato           
+          PrecioPlato="$5000" 
+          ProductoPlato="Pastel de Choclo Tradicional"
+          description_plato="Pastel de Choclo con receta del sur de Chile "
+          image_plato="https://www.superpollo.cl/img/recetas/Pastel_Choclo_1.jpg"
+          ></Plato>
+          
         </div>
       </div>
       <div id="bebidas" className="home-bebidas">
@@ -95,20 +167,51 @@ const Home = (props) => {
         <span className="home-text17">Recomendados</span>
         <div className="home-cards-container2">
           <Bebida
-            image=" "
             bebida="Coca cola"
             rootClassName="bebida-root-class-name"
-            image_alt_bebida="https://images.unsplash.com/photo-1585211969224-3e992986159d?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;h=1000"
-            PrecioBebida="$5000"
+            image_bebida="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2020/02/coca-cola-portada-1877741.jpg"
+            PrecioBebida="$2000"
+            descriptionBebida="Lata y botella de Vidrio retornable"
           ></Bebida>
-          <Bebida rootClassName="bebida-root-class-name"></Bebida>
-          <Bebida
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxAZHlTXLGbv2ZOdnnSdUNABu9R6DfZnSUBg&amp;usqp=CAU"
+
+          <Bebida 
+            bebida="Monster"
             rootClassName="bebida-root-class-name"
+            image_bebida="https://st.depositphotos.com/9460154/54316/i/600/depositphotos_543162980-stock-photo-black-monster-energy-drink-bryansk.jpg"
+            PrecioBebida="$2000"
+            descriptionBebida="Variedad de bebida energetica Monster. Incluye Monster Zero Sin Azucar "
           ></Bebida>
-          <Bebida rootClassName="bebida-root-class-name"></Bebida>
-          <Bebida rootClassName="bebida-root-class-name"></Bebida>
-          <Bebida rootClassName="bebida-root-class-name"></Bebida>
+
+          <Bebida 
+            bebida="Pepsi"
+            rootClassName="bebida-root-class-name"
+            image_bebida="https://t3.ftcdn.net/jpg/04/01/01/08/360_F_401010866_2vtyb52QWBQVzdwU3UUBIisSMx1tBM03.jpg"
+            PrecioBebida="$1500"
+            descriptionBebida="Lata y botella de Vidrio retornable"
+          ></Bebida>
+
+          <Bebida 
+            bebida="Fanta"
+            rootClassName="bebida-root-class-name"
+            image_bebida="https://c0.wallpaperflare.com/preview/795/164/862/beverage-blur-can-canister.jpg"
+            PrecioBebida="$1500"
+            descriptionBebida="Lata y botella de Vidrio retornable"
+          ></Bebida>
+
+          <Bebida bebida="Cerveza"
+            rootClassName="bebida-root-class-name"
+            image_bebida="https://mejorconsalud.as.com/wp-content/uploads/2016/08/7-increibles-beneficios-de-la-cerveza.jpg"
+            PrecioBebida="$2500"
+            descriptionBebida="Malta o Lagger en Chopero de 700ml"
+          ></Bebida>
+
+          <Bebida 
+            bebida="Jugo Natural"
+            rootClassName="bebida-root-class-name"
+            image_bebida="https://s1.1zoom.me/big0/271/Juice_Tomatoes_Kiwi_497425.jpg"
+            PrecioBebida="$1500"
+            descriptionBebida="Variedad de Jugos. Fresa, Naranja y Durazno."
+          ></Bebida>
         </div>
       </div>
 
