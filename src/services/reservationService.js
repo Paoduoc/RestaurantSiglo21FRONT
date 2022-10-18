@@ -54,7 +54,7 @@ export const putOvercrowding = async ({
   overcrowding,
 }) => {
   try {
-    const { data } = await axios.put(`${serviceApi}/${_id}`, {
+    const { data } = await axios.put(`${serviceApi}/sobrecupo/${_id}`, {
       sobrecupo: overcrowding,
     })
     return data

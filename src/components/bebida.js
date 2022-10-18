@@ -24,12 +24,12 @@ const Bebida = (props) => {
 }
 
 Bebida.defaultProps = {
-  bebida: 'Monster',
+  bebida: 'Coca Cola',
   PrecioBebida: '$',
   descriptionBebida:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.',
   rootClassName: '',
-  image_bebida: 'https://play.teleporthq.io/static/svg/default-img.svg',
+  image_bebida: 'https://brindo.cl/3-home_default/1x-coca-cola-lata-350cc.jpg',
 }
 
 Bebida.propTypes = {

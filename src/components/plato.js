@@ -25,7 +25,7 @@ const Plato = (props) => {
 }
 
 Plato.defaultProps = {
-  image_plato: 'https://play.teleporthq.io/static/svg/default-img.svg',
+  image_plato: 'https://tipsparatuviaje.com/wp-content/uploads/2020/01/comida-chilena.jpg',
   ProductoPlato: 'comida',
   description_plato:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.',

@@ -25,6 +25,7 @@ export const ProductForm = ({
   const [gDispo, setGDispo] = useState(gramosDispo)
   const [gMin, setGMin] = useState(gramosMin)
   const [gMax, setGMax] = useState(gramosMax)
+  const [isLoading, setIsLoading] = useState(false)
 
   const updateAllProducts = async () => {
     // desde la bodega sacamos los productos con sus gramos
@@ -44,6 +45,8 @@ export const ProductForm = ({
   }
 
   const handleAction = async () => {
+    if (isLoading === true) return
+    setIsLoading(true)
     const response = await ProductService[`${formType}Product`]({
       _id,
       name,
@@ -65,6 +68,7 @@ export const ProductForm = ({
       })
       dispatch(setModalCrudVisibility(false))
     }
+    setIsLoading(false)
   }
 
   return (

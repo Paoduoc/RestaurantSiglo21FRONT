@@ -48,11 +48,12 @@ const Tables = (props) => {
 
   const filterOldReservations = () => {
     const activeReservations = allReservations.filter(reservation => {
-      if (reservation.reservada === true || reservation.sobrecupo === true) {
+      console.log(reservation)
+      if (reservation.reservada || reservation.sobrecupo) {
         return reservation
       }
     })
-    setAllReservations(activeReservations)
+    return activeReservations
   }
 
   // aqui nos encargamos de filtrar las reservas que no sirven
@@ -61,20 +62,23 @@ const Tables = (props) => {
     if (tablesLoaded  && reservationsLoaded) {
       // aqui sacamos las reservas que no estan reservadas ni con sobrecupo
       // en otras palabras limpias las reservas viejas
-      filterOldReservations()
+      const activeReservations = filterOldReservations()
       // aqui mezclamos mesas + reservas
       const tablesMerged = allTables.map(table => {
-        const reservation = allReservations.find(reservation => reservation.mesa === table._id)
+        const reservation = activeReservations.find(reservation => reservation.mesa === table._id)
         if (reservation) {
           return {
             ...table,
-            ...reservation
+            ...reservation,
+            tableId: table._id,
+            reservationId: reservation._id
           }
         }
         return {
           ...table,
           reservada: false,
-          sobrecupo: false
+          sobrecupo: false,
+          tableId: table._id,
         }
       })
       setFinalTableState(tablesMerged)
@@ -105,16 +109,16 @@ const Tables = (props) => {
   }
 
   const tableStateClass = (table) => {
-    if (table.reservada) {
+    if (table.sobrecupo) {
       return {
-        class: 'tables-container4',
-        statusText: 'Reservada'
+        class: 'tables-container6',
+        statusText: 'Sobrecupo'
       }
     }
     if (table.reservada) {
       return {
-        class: 'tables-container6',
-        statusText: 'Sobrecupo'
+        class: 'tables-container4',
+        statusText: 'Reservada'
       }
     }
     return {
@@ -124,7 +128,7 @@ const Tables = (props) => {
   }
 
   const startReservationBtn = (table) => (
-    <button className="tables-button1 button" onClick={() => handleStartReservation(table._id)}>
+    <button className="tables-button1 button" onClick={() => handleStartReservation(table.tableId)}>
       <span>
         <span>Empezar Reserva</span>
         <br></br>
@@ -133,7 +137,7 @@ const Tables = (props) => {
   )
 
   const endReservationBtn = (table) => (
-    <button className="tables-button1 button" onClick={() => handleEndReservation(table._id)}>
+    <button className="tables-button1 button" onClick={() => handleEndReservation(table.reservationId)}>
       <span>
         <span>Finalizar Reserva</span>
         <br></br>
@@ -142,9 +146,9 @@ const Tables = (props) => {
   )
 
   const putOvercrowdingBtn = (table) => (
-    <button className="tables-button1 button" onClick={() => handlePutOvercrowding(table._id, !table.sobrecupo)}>
+    <button className="tables-button1 button" onClick={() => handlePutOvercrowding(table.reservationId, !table.sobrecupo)}>
       <span>
-        <span>Sobrecupo</span>
+        <span>{table.sobrecupo ? 'Desactivar sobrecupo' : 'Sobrecupo'}</span>
         <br></br>
       </span>
     </button>
@@ -172,9 +176,14 @@ const Tables = (props) => {
                   !table.reservada && !table.sobrecupo
                     ? (startReservationBtn(table))
                     : ( 
-                      table.reservada 
-                        ? endReservationBtn(table)
-                        : putOvercrowdingBtn(table)
+                      table.sobrecupo 
+                        ? putOvercrowdingBtn(table)
+                        : (
+                          <>
+                            { endReservationBtn(table) }
+                            { putOvercrowdingBtn(table) }
+                          </>
+                        )
                     )
                 }
               </div>

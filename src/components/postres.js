@@ -25,7 +25,7 @@ const Postres = (props) => {
 
 Postres.defaultProps = {
   rootClassName: '',
-  image_postres: 'https://play.teleporthq.io/static/svg/default-img.svg',
+  image_postres: 'https://cdn.shopify.com/s/files/1/0492/6711/4133/articles/tiramisu-receta-original.jpg?v=1644419306',
   postres: 'Tiramisu',
   descriptionPostre:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.',

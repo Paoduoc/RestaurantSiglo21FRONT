@@ -27,9 +27,8 @@ const Home = (props) => {
               <br></br>
             </h1>
             <span className="content home-text05">
-              Amet luctus venenatis lectus magna fringilla urna porttitor
-              rhoncus dolor. A lacus vestibulum sed arcu non. Dolor magna eget
-              est lorem ipsum dolor sit amet consectetur.
+              Somos conocidos por nuestra exquisita comida casera.
+              Ven a disfrutar junto a nosotros una experiencia de sabores.
             </span>
           </div>
           <div className="home-container1">
