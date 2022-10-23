@@ -15,7 +15,7 @@ const Plato = (props) => {
         <span className="plato-text2">{props.PrecioPlato}</span>
         <br></br>
         <ComprarPulsado
-          button1="Comprar"
+          button1="+"
           rootClassName="comprar-pulsado-root-class-name"
           
         ></ComprarPulsado>

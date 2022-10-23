@@ -7,6 +7,8 @@ import {
   useNavigate
 } from "react-router-dom";
 import Home from "./Home.js";
+import Tomar from "./Tomar";
+import Carrito from "./Carrito.js";
 import { InternalMenu } from "./InternalMenu";
 
 import Login from "./Login";
@@ -54,6 +56,8 @@ export const Navigation = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/internal-menu">Menu</NavLink>
+                <NavLink className="nav-link" to="/Tomar">Menudfsfds</NavLink>
+
               </li>
               
             </ul>
@@ -87,6 +91,8 @@ export const Navigation = () => {
         <Route path="/dishe-crud" element={ <DisheCrud/> } />
         <Route path="/table-crud" element={ <TableCrud/> } />
         <Route path="/reservation" element={ <Tables/> } />
+        <Route path="/carrito" element={ <Carrito/> } />
+        <Route path="/Tomar" element={ <Tomar/> } />
         <Route path="/" element={ <Home/> } />
       </Routes>
     </>

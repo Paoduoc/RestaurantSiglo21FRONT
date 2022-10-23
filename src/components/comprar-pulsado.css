@@ -15,10 +15,17 @@
 }
 .comprar-pulsado-root-class-name {
   align-self: center;
+  margin: center;
 }
 .comprar-pulsado-root-class-name1 {
   align-self: center;
 }
 .comprar-pulsado-root-class-name2 {
   align-self: center;
+}
+.icono{
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  
 }

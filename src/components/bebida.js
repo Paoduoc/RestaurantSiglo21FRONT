@@ -14,9 +14,10 @@ const Bebida = (props) => {
         <span className="bebida-text1">{props.descriptionBebida}</span>
         <span className="bebida-text2">{props.PrecioBebida}</span>
         <ComprarPulsado
-          button1="Comprar"
+          button1="+"
           rootClassName="comprar-pulsado-root-class-name"
           className=""
+          
         ></ComprarPulsado>
       </div>
     </div>

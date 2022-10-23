@@ -14,7 +14,7 @@ const Postres = (props) => {
         <span className="postres-text1">{props.descriptionPostre}</span>
         <span className="postres-text2">{props.PrecioPostre}</span>
         <ComprarPulsado
-          button1="Comprar"
+          button1="+"
           rootClassName="comprar-pulsado-root-class-name"
           className=""
         ></ComprarPulsado>

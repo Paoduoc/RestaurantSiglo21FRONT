@@ -7,6 +7,7 @@ import Postres from '../components/postres'
 import Plato from '../components/plato'
 import Bebida from '../components/bebida'
 import './home.css'
+import ComprarPulsado from './comprar-pulsado'
 
 const Home = (props) => {
   return (
@@ -57,15 +58,24 @@ const Home = (props) => {
             </div>
           </div>
         </div>
+
       </div>
+      <br></br>
+      <a class="lel" href="/carrito">Ver Carrito<span></span></a>
+
       <div id="postres" className="home-postres">
+        
         <h1>
+
+        
           <span>Postres</span>
+          
           
           <br></br>
         </h1>
         <span className="home-text10">Recomendados</span>
         <div className="home-cards-container">
+          <div></div>
           <Postres 
           rootClassName="postres-root-class-name" 
           image_postres="https://cdn.shopify.com/s/files/1/0492/6711/4133/articles/tiramisu-receta-original.jpg?v=1644419306"
@@ -73,6 +83,9 @@ const Home = (props) => {
           descriptionPostre="Galletas bañadas en Licor y cacao"
           postres="Tiramisu"
           ></Postres>
+          
+
+        
 
           <Postres           
           rootClassName="postres-root-class-name" 
@@ -86,7 +99,7 @@ const Home = (props) => {
           rootClassName="postres-root-class-name" 
           image_postres="https://comidaschilenas.com/wp-content/uploads/2019/02/Receta-de-leche-nevadfa-chilena.jpg"
           PrecioPostre="4500"
-          descriptionPostre="Flan de vainilla con azucar maicena y canela"
+          descriptionPostre="Flan de vainilla con azúcar maicena y canela"
           postres="Leche Nevada"
           ></Postres>
 
@@ -94,7 +107,7 @@ const Home = (props) => {
           rootClassName="postres-root-class-name" 
           image_postres="https://www.gourmet.cl/wp-content/uploads/2018/03/Leche-Asada-Web.jpg"
           PrecioPostre="5000"
-          descriptionPostre="Leche con huevos, rayadura de limon, azucar, vainilla y caramelo"
+          descriptionPostre="Leche con huevos, rayadura de limón, azúcar, vainilla y caramelo"
           postres="Leche asada"
           ></Postres>
 
@@ -102,7 +115,7 @@ const Home = (props) => {
           rootClassName="postres-root-class-name" 
           image_postres="https://www.lacocinachilena.tk/wp-content/uploads/2015/05/Brazo-de-reina.jpg"
           PrecioPostre="4500"
-          descriptionPostre="Queque de vainilla, rellenado con manjar y espolvoreado con azucar con flor"
+          descriptionPostre="Queque de vainilla, rellenado con manjar y espolvoreado con azúcar con flor"
           postres="Brazo de Reina"
           ></Postres>
 
@@ -110,8 +123,8 @@ const Home = (props) => {
           rootClassName="postres-root-class-name" 
           image_postres="https://www.diariamenteali.com/medias/Receta-de-Pie-de-lim-n-1900Wx500H?context=bWFzdGVyfHJvb3R8MTY1MTcyfGltYWdlL2pwZWd8aGY3L2gwMC85MDc0MTk1NzkxOTAyL1JlY2V0YS1kZS1QaWUtZGUtbGltw7NuXzE5MDBXeDUwMEh8YjI5NDU4NTNlNjlmNmE2NWQ1MTBhYWYxMjIyNmZjNTM0ZDExNTQyMDY0MWJjZTA2YWY2MzQ4OTRmOTQ0ZDk5OA"
           PrecioPostre="4500"
-          descriptionPostre="Masa de galleta, cubierta por leche condesada con jugo de limon y merenge"
-          postres="Pie de Limon"
+          descriptionPostre="Masa de galleta, cubierta por leche condesada con jugo de limón y merengue"
+          postres="Pie de Limón"
           ></Postres>
         </div>
       </div>
@@ -122,13 +135,13 @@ const Home = (props) => {
           <Plato 
           PrecioPlato="$6000" 
           ProductoPlato="Cazuela de Ave"
-          description_plato="Cazuela de pollo tipica Chilena"
+          description_plato="Cazuela de pollo típica Chilena"
           image_plato="https://comidaschilenas.com/wp-content/uploads/2020/01/Receta-de-cazuela-de-pollo.jpg"
           ></Plato>
           <Plato           
           PrecioPlato="$7000" 
           ProductoPlato="Cazuela de Vacuno/Osobuco"
-          description_plato="Cazuela de Vacuno tipica chilena, Puede ser de Osobuco igualmente"
+          description_plato="Cazuela de Vacuno típica chilena, Puede ser de Osobuco igualmente"
           image_plato="https://img-global.cpcdn.com/recipes/fadaee2fd7c899a6/400x400cq70/photo.jpg"
           ></Plato>
           <Plato          
@@ -146,7 +159,7 @@ const Home = (props) => {
           <Plato           
           PrecioPlato="$3000" 
           ProductoPlato="Humitas"
-          description_plato="Humitas caseras con Azucar o tomate a eleccion"
+          description_plato="Humitas caseras con Azúcar o tomate a elección"
           image_plato="https://comidaschilenas.com/wp-content/uploads/2022/07/Receta-de-humitas-de-choclo-Comidas-Chilenas.jpg"
           ></Plato>
           <Plato           
@@ -179,7 +192,7 @@ const Home = (props) => {
             rootClassName="bebida-root-class-name"
             image_bebida="https://st.depositphotos.com/9460154/54316/i/600/depositphotos_543162980-stock-photo-black-monster-energy-drink-bryansk.jpg"
             PrecioBebida="$2000"
-            descriptionBebida="Variedad de bebida energetica Monster. Incluye Monster Zero Sin Azucar "
+            descriptionBebida="Variedad de bebida energética Monster. Incluye Monster Zero Sin Azúcar "
           ></Bebida>
 
           <Bebida 
