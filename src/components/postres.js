@@ -30,6 +30,7 @@ Postres.defaultProps = {
   descriptionPostre:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.',
   PrecioPostre: '$',
+  cantidadPostre: '1'
 }
 
 Postres.propTypes = {
@@ -38,6 +39,7 @@ Postres.propTypes = {
   postres: PropTypes.string,
   descriptionPostre: PropTypes.string,
   PrecioPostre: PropTypes.string,
+  cantidadPostre: PropTypes.string
 }
 
 export default Postres

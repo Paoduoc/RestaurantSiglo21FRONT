@@ -107,10 +107,13 @@ a.lel{
   padding: 10px 30px;
   border: 0px solid #cd3838;
   border-radius: 50px;
-  display: inline-flex;
   justify-content: center;
-
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
   box-shadow: inset 0px 0px 10px 0px #2D2D2D;
+  
  }
  a.lel span{
   margin-left:15px;

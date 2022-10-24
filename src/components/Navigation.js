@@ -56,7 +56,7 @@ export const Navigation = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/internal-menu">Menu</NavLink>
-                <NavLink className="nav-link" to="/Tomar">Menudfsfds</NavLink>
+                
 
               </li>
               

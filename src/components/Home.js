@@ -7,7 +7,7 @@ import Postres from '../components/postres'
 import Plato from '../components/plato'
 import Bebida from '../components/bebida'
 import './home.css'
-import ComprarPulsado from './comprar-pulsado'
+
 
 const Home = (props) => {
   return (
@@ -15,7 +15,7 @@ const Home = (props) => {
       
       <Helmet>
         <title>E-Restaurant XXI</title>
-        <meta property="og:title" content="Travel Agency" />
+        <meta property="og:title" />
       </Helmet>
       <br></br>
       <div className="home-top-container">

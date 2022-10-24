@@ -3,9 +3,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import Botonnormal from './botonnormal'
-import Postres from './postres'
-import Plato from './plato'
-import Bebida from './bebida'
+
 import './Tomar.css'
 
 
