@@ -2,10 +2,10 @@ import React from 'react'
 
 import { Helmet } from 'react-helmet'
 
-import Botonnormal from './botonnormal'
+import Botonnormal from './Home/botonnormal'
 import Lista from './lista'
-import Postres from './postres'
-import Plato from './plato'
+import Postres from './Home/postres'
+import Plato from './Home/plato'
 
 import './Carrito.css'
 

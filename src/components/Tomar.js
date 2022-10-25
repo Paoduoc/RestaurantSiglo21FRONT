@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Helmet } from 'react-helmet'
 
-import Botonnormal from './botonnormal'
+import Botonnormal from './Home/botonnormal'
 
 import './Tomar.css'
 

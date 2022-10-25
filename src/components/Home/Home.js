@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Helmet } from 'react-helmet'
 
@@ -7,9 +7,24 @@ import Postres from './postres'
 import Plato from './plato'
 import Bebida from './bebida'
 import './home.css'
+import { getMenu } from '../../services/menuService'
 
 
 const Home = (props) => {
+
+  const [menu, setMenu] = useState([])
+
+  const handleGetMenu = async () => {
+    const response = await getMenu()
+    if (response.status === 201) {
+      setMenu(response.msg)
+    }
+  }
+
+  useEffect(() => {
+    handleGetMenu()
+  }, [])
+  
   
   return (
     <div className="home-container">
@@ -62,16 +77,11 @@ const Home = (props) => {
 
       </div>
       <br></br>
-      <a class="lel" href="/carrito">Ver Carrito<span></span></a>
+      <a className="lel" href="/carrito">Ver Carrito<span></span></a>
 
       <div id="postres" className="home-postres">
-        
         <h1>
-
-        
           <span>Postres</span>
-          
-          
           <br></br>
         </h1>
         <span className="home-text10">Nuestros postres</span>
@@ -133,43 +143,16 @@ const Home = (props) => {
         <h1>Platos</h1>
         <span className="home-text12">Nuestros platos</span>
         <div className="home-cards-container1">
-          <Plato 
-          PrecioPlato="$6000" 
-          ProductoPlato="Cazuela de Ave"
-          description_plato="Cazuela de pollo típica Chilena"
-          image_plato="https://comidaschilenas.com/wp-content/uploads/2020/01/Receta-de-cazuela-de-pollo.jpg"
-          ></Plato>
-          <Plato           
-          PrecioPlato="$7000" 
-          ProductoPlato="Cazuela de Vacuno/Osobuco"
-          description_plato="Cazuela de Vacuno típica chilena, Puede ser de Osobuco igualmente"
-          image_plato="https://img-global.cpcdn.com/recipes/fadaee2fd7c899a6/400x400cq70/photo.jpg"
-          ></Plato>
-          <Plato          
-          PrecioPlato="$8000" 
-          ProductoPlato="Caldillo de Congrio"
-          description_plato="Caldillo de Congrio, receta del sur de Chile"
-          image_plato="https://virginiademaria.cl/wp-content/uploads/2015/07/virginia-recetas.caldillo.jpg"
-          ></Plato>
-          <Plato          
-          PrecioPlato="$6500" 
-          ProductoPlato="Chaquicán"
-          description_plato="Charquicán con Huevo y Longaniza"
-          image_plato="https://recetas-rapidas.es/wp-content/uploads/2018/10/charquican-receta-comida-chile.jpg"
-          ></Plato>
-          <Plato           
-          PrecioPlato="$3000" 
-          ProductoPlato="Humitas"
-          description_plato="Humitas caseras con Azúcar o tomate a elección"
-          image_plato="https://comidaschilenas.com/wp-content/uploads/2022/07/Receta-de-humitas-de-choclo-Comidas-Chilenas.jpg"
-          ></Plato>
-          <Plato           
-          PrecioPlato="$5000" 
-          ProductoPlato="Pastel de Choclo Tradicional"
-          description_plato="Pastel de Choclo con receta del sur de Chile "
-          image_plato="https://www.superpollo.cl/img/recetas/Pastel_Choclo_1.jpg"
-          ></Plato>
-          
+          {
+            menu.map(plato => (
+              <Plato 
+                PrecioPlato={`$${plato.precio}`}
+                ProductoPlato={plato.nombrePlato}
+                description_plato=""
+                image_plato="https://www.superpollo.cl/img/recetas/Pastel_Choclo_1.jpg"
+              />
+            ))
+          }
         </div>
       </div>
       <div id="bebidas" className="home-bebidas">

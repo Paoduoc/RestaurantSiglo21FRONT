@@ -20,6 +20,7 @@ import { DisheCrud } from './DisheCrud/DisheCrud';
 import './Navigation.css'
 import { TableCrud } from './TableCrud/TableCrud';
 import { Vault } from './Vault/Vault.js';
+import { Menu } from './Menu/Menu.js';
 
 export const Navigation = () => {
   const dispatch = useDispatch()
@@ -56,7 +57,10 @@ export const Navigation = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/internal-menu">Menú</NavLink>
+                <NavLink className="nav-link" to="/internal-menu">Menú interno</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/menu">Menú</NavLink>
               </li>
               
             </ul>
@@ -94,6 +98,7 @@ export const Navigation = () => {
         <Route path="/Tomar" element={ <Tomar/> } />
         <Route path="/" element={ <Home/> } />
         <Route path="/vault" element={ <Vault/> } />
+        <Route path="/menu" element={ <Menu/> } />
       </Routes>
     </>
   )
