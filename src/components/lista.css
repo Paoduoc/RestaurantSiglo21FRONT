@@ -1,0 +1,11 @@
+.lista-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  size: 20px;
+}
+.lista-select {
+  width: 51px;
+  height: 21px;
+}

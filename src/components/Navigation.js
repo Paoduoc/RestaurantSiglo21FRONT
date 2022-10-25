@@ -7,6 +7,8 @@ import {
   useNavigate
 } from "react-router-dom";
 import Home from "./Home/Home.js";
+import Tomar from "./Tomar";
+import Carrito from "./Carrito.js";
 import { InternalMenu } from "./InternalMenu";
 
 import Login from "./Login";
@@ -88,6 +90,8 @@ export const Navigation = () => {
         <Route path="/dishe-crud" element={ <DisheCrud/> } />
         <Route path="/table-crud" element={ <TableCrud/> } />
         <Route path="/reservation" element={ <Tables/> } />
+        <Route path="/carrito" element={ <Carrito/> } />
+        <Route path="/Tomar" element={ <Tomar/> } />
         <Route path="/" element={ <Home/> } />
         <Route path="/vault" element={ <Vault/> } />
       </Routes>

@@ -14,7 +14,7 @@ const Postres = (props) => {
         <span className="postres-text1">{props.descriptionPostre}</span>
         <span className="postres-text2">{props.PrecioPostre}</span>
         <ComprarPulsado
-          button1="Comprar"
+          button1="+"
           rootClassName="comprar-pulsado-root-class-name"
           className=""
         ></ComprarPulsado>
@@ -30,6 +30,7 @@ Postres.defaultProps = {
   descriptionPostre:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.',
   PrecioPostre: '$',
+  cantidadPostre: '1'
 }
 
 Postres.propTypes = {
@@ -38,6 +39,7 @@ Postres.propTypes = {
   postres: PropTypes.string,
   descriptionPostre: PropTypes.string,
   PrecioPostre: PropTypes.string,
+  cantidadPostre: PropTypes.string
 }
 
 export default Postres
