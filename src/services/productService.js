@@ -23,18 +23,16 @@ export const getAllProducts = async () => {
 export const createProduct = async ({
   name,
   type,
-  gDispo,
-  gMin,
-  gMax,
+  ammount,
+  minAmmount,
 }) => {
   try {
     const { data } = await axios.post(serviceApi, {
       nombreProducto: name,
       estado: true,
       tipo: type,
-      gramosDispo: gDispo,
-      gramosMin: gMin,
-      gramosMax: gMax,
+      cantidad: parseInt(ammount),
+      cantidadMin: parseInt(minAmmount),
     })
     return data
   } catch (error) {

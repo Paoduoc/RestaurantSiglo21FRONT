@@ -6,7 +6,7 @@ import {
   NavLink,
   useNavigate
 } from "react-router-dom";
-import Home from "./Home.js";
+import Home from "./Home/Home.js";
 import { InternalMenu } from "./InternalMenu";
 
 import Login from "./Login";
@@ -17,6 +17,7 @@ import { ProductCrud } from './ProductCrud/ProductCrud';
 import { DisheCrud } from './DisheCrud/DisheCrud';
 import './Navigation.css'
 import { TableCrud } from './TableCrud/TableCrud';
+import { Vault } from './Vault/Vault.js';
 
 export const Navigation = () => {
   const dispatch = useDispatch()
@@ -53,7 +54,7 @@ export const Navigation = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/internal-menu">Menu</NavLink>
+                <NavLink className="nav-link" to="/internal-menu">Menú</NavLink>
               </li>
               
             </ul>
@@ -61,7 +62,7 @@ export const Navigation = () => {
 
           {
             !token ?
-              <a className="lol" href="/login" role="button">Iniciar sesion</a> :
+              <a className="lol" href="/login" role="button">Iniciar sesión</a> :
               (
                 <div style={{ color: 'black' }}>
                   <span style={{ 'marginRight': '10px' }}>Bienvenid@ { user?.nombre }</span>
@@ -70,7 +71,7 @@ export const Navigation = () => {
                     className="btn btn-outline-success"
                     onClick={ () => handleLogout() }
                   >
-                    Cerrar sesion
+                    Cerrar sesión
                   </button>
                 </div>
               )
@@ -88,6 +89,7 @@ export const Navigation = () => {
         <Route path="/table-crud" element={ <TableCrud/> } />
         <Route path="/reservation" element={ <Tables/> } />
         <Route path="/" element={ <Home/> } />
+        <Route path="/vault" element={ <Vault/> } />
       </Routes>
     </>
   )
