@@ -61,15 +61,21 @@ export const DisheList = () => {
                 <td>{ d.nombrePlato }</td>
                 <td>{ d.precio }</td>
                 <td>{ d.preparacion }</td>
-                <td>{ d.tiempoPreparacion }</td>
+                <td>{ d.minutosPreparacion }</td>
                 <td>
-                  <ul>
-                    {
-                      d.ingredientes.map(i => (
-                        <li key={i}>{i}</li>
-                      ))
-                    }
-                  </ul>
+                  {
+                    d.ingredientes.length 
+                      ? (
+                        <ul>
+                          {
+                            d.ingredientes.map((i, index) => (
+                              <li key={`${d._id}${index}`}>{i.nom}: {i.cant}</li>
+                            ))
+                          }
+                        </ul>
+                      )
+                      : 'Sin ingredientes'
+                  }
                 </td>
                 <td>
                   <Button variant="primary" onClick={() => handleShow(d)}>

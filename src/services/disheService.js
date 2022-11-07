@@ -26,15 +26,21 @@ export const createDishe = async ({
   preparation,
   preparationTime,
   price,
+  description,
+  category,
+  image,
 }) => {
   try {
     const { data } = await axios.post(serviceApi, {
       nombrePlato: name,
       estado: true,
+      descripcion: description,
+      categoria: category,
       ingredientes: ingredients,
       preparacion: preparation,
-      tiempoPreparacion: preparationTime,
+      minutosPreparacion: preparationTime,
       precio: price,
+      imagen: image
     })
     return data
   } catch (error) {

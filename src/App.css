@@ -4,6 +4,16 @@
   color: white;
 }
 
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #fff;
+  color: black;
+  border-top: black 1px solid;
+  margin-top: 20px;
+}
+
 .flex {
   display: flex;
 }
