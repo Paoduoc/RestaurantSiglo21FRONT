@@ -21,7 +21,7 @@ export const DisheDialog = () => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{formType === 'create' ? 'Crear' : 'Editar'} disheo</Modal.Title>
+          <Modal.Title>{formType === 'create' ? 'Crear' : 'Editar'} plato</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <DisheForm

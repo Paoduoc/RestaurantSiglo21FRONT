@@ -2,8 +2,15 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialStateDishe = {
   _id: '',
-  nombre: '',
-  apellido: '',
+  nombrePlato: '',
+  estado: false,
+  descripcion: '',
+  categoria: '',
+  preparacion: '',
+  precio: '',
+  minutosPreparacion: '',
+  ingredientes: [],
+  imagen: '',
 }
 
 const initialState = {
