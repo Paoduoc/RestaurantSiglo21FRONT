@@ -31,6 +31,7 @@ export const InternalMenu = () => {
             <br></br>
             <button type="button" className='btn btn-danger' onClick={() => goTo('/reservation')}>Mantenedor de reservas</button>
             <br></br>
+            <button type="button" className='btn btn-danger' onClick={() => goTo('/vault')}>Bodega</button>
             <br></br>
             <br></br>
             <br></br>

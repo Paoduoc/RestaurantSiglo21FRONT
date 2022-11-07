@@ -6,7 +6,7 @@ import {
   NavLink,
   useNavigate
 } from "react-router-dom";
-import Home from "./Home.js";
+import Home from "./Home/Home.js";
 import Tomar from "./Tomar";
 import VProveedores from "./vproveedores.js";
 import Pagar from "./pagar.js";
@@ -21,6 +21,10 @@ import { ProductCrud } from './ProductCrud/ProductCrud';
 import { DisheCrud } from './DisheCrud/DisheCrud';
 import './Navigation.css'
 import { TableCrud } from './TableCrud/TableCrud';
+import Carrito from './Carrito.js';
+import {Vault} from './Vault/Vault';
+
+
 
 export const Navigation = () => {
   const dispatch = useDispatch()
@@ -103,7 +107,9 @@ export const Navigation = () => {
         <Route path="/vproveedores" element={ <VProveedores/> } />
         <Route path="/pagar" element={ <Pagar/> } />
         <Route path="/Tomar" element={ <Tomar/> } />
+        <Route path="/carrito" element={ <Carrito/> } />
         <Route path="/" element={ <Home/> } />
+        <Route path="/vault" element={ <Vault/> } />
       </Routes>
     </>
   )
