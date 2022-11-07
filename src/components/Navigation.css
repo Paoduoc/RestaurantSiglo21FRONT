@@ -9,9 +9,38 @@
   font-size: 16px;
   border-radius: 8px;
   transition-duration: 0.2s;
+  border-radius: 50px;
+  display: flex;
 
 }
 .lol:hover {
   background-color: #8c0434; /* Green */
   color: white;
+  border-radius: 50px;
+  display: flex;
+}
+.navbar-expand-lg {
+  border-radius: 50px;
+  color: #eadbde;
+  background-color: #eadbde;
+ 
+}
+.background {
+  background-color: white;
+  padding-bottom: 1px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 50px;
+}
+.navbar-brand {
+  padding-left: 20px ;
+  text-rendering: optimizeLegibility;
+}
+.navbar-collapse {
+  background-color: #eadbde;
+}
+.container-fluid {
+  background-color: #eadbde;
+  border-radius: 50px;
 }

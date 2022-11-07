@@ -12,8 +12,9 @@ export const ProductForm = ({
   _id,
   nombreProducto,
   tipo,
-  cantidad,
-  cantidadMin,
+  gramosDispo,
+  gramosMin,
+  gramosMax,
   formType
 }) => {
   const dispatch = useDispatch()
@@ -21,8 +22,9 @@ export const ProductForm = ({
 
   const [name, setName] = useState(nombreProducto)
   const [type, setType] = useState(tipo)
-  const [ammount, setAmmount] = useState(cantidad)
-  const [minAmmount, setMinAmmount] = useState(cantidadMin)
+  const [gDispo, setGDispo] = useState(gramosDispo)
+  const [gMin, setGMin] = useState(gramosMin)
+  const [gMax, setGMax] = useState(gramosMax)
   const [isLoading, setIsLoading] = useState(false)
 
   const updateAllProducts = async () => {
@@ -49,8 +51,9 @@ export const ProductForm = ({
       _id,
       name,
       type,
-      ammount,
-      minAmmount,
+      gDispo,
+      gMin,
+      gMax,
     })
     console.log(response)
     if (response.status >= 400 && response.status <= 499) {
@@ -78,10 +81,12 @@ export const ProductForm = ({
           formType === 'create' ?
             (
               <div>
-                <label className='form-label'>Cantidad</label>
-                <input className='form-control' type="number" value={ammount} onChange={(event) => setAmmount(event.target.value)} />
-                <label className='form-label'>Cantidad Min</label>
-                <input className='form-control' type="number" value={minAmmount} onChange={(event) => setMinAmmount(event.target.value)} />
+                <label className='form-label'>Gramos Dispo</label>
+                <input className='form-control' type="text" value={gDispo} onChange={(event) => setGDispo(event.target.value)} />
+                <label className='form-label'>Gramos Min</label>
+                <input className='form-control' type="text" value={gMin} onChange={(event) => setGMin(event.target.value)} />
+                <label className='form-label'>Gramos Max</label>
+                <input className='form-control' type="text" value={gMax} onChange={(event) => setGMax(event.target.value)} />
               </div>
             ) :
             <div></div>

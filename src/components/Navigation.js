@@ -6,9 +6,11 @@ import {
   NavLink,
   useNavigate
 } from "react-router-dom";
-import Home from "./Home/Home.js";
+import Home from "./Home.js";
 import Tomar from "./Tomar";
-import Carrito from "./Carrito.js";
+import VProveedores from "./vproveedores.js";
+import Pagar from "./pagar.js";
+
 import { InternalMenu } from "./InternalMenu";
 
 import Login from "./Login";
@@ -19,8 +21,6 @@ import { ProductCrud } from './ProductCrud/ProductCrud';
 import { DisheCrud } from './DisheCrud/DisheCrud';
 import './Navigation.css'
 import { TableCrud } from './TableCrud/TableCrud';
-import { Vault } from './Vault/Vault.js';
-import { Menu } from './Menu/Menu.js';
 
 export const Navigation = () => {
   const dispatch = useDispatch()
@@ -51,24 +51,28 @@ export const Navigation = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <div className='background'>
+      <nav className="navbar navbar-expand-lg" >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">Restaurante XXI</a>
+          <a className="navbar-brand" href="/" src=" ">Restaurante XXI</a>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/internal-menu">Menú interno</NavLink>
+                <NavLink className="nav-link" to="/internal-menu">Menu</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/menu">Menú</NavLink>
+                <NavLink className="nav-link" to="/Tomar">Vista Cocina</NavLink>
               </li>
-              
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/pagar">Pagina Pagar</NavLink>
+              </li>
             </ul>
+            
           </div>
 
           {
             !token ?
-              <a className="lol" href="/login" role="button">Iniciar sesión</a> :
+              <a className="lol" href="/login" role="button">Iniciar sesion</a> :
               (
                 <div style={{ color: 'black' }}>
                   <span style={{ 'marginRight': '10px' }}>Bienvenid@ { user?.nombre }</span>
@@ -77,13 +81,15 @@ export const Navigation = () => {
                     className="btn btn-outline-success"
                     onClick={ () => handleLogout() }
                   >
-                    Cerrar sesión
+                    Cerrar sesion
                   </button>
                 </div>
               )
           }
         </div>
       </nav>
+      </div>
+      
 
       <Routes>
         <Route path="/login" element={ <Login/> } />
@@ -94,11 +100,10 @@ export const Navigation = () => {
         <Route path="/dishe-crud" element={ <DisheCrud/> } />
         <Route path="/table-crud" element={ <TableCrud/> } />
         <Route path="/reservation" element={ <Tables/> } />
-        <Route path="/carrito" element={ <Carrito/> } />
+        <Route path="/vproveedores" element={ <VProveedores/> } />
+        <Route path="/pagar" element={ <Pagar/> } />
         <Route path="/Tomar" element={ <Tomar/> } />
         <Route path="/" element={ <Home/> } />
-        <Route path="/vault" element={ <Vault/> } />
-        <Route path="/menu" element={ <Menu/> } />
       </Routes>
     </>
   )

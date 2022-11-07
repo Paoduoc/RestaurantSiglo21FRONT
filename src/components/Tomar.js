@@ -2,38 +2,31 @@ import React from 'react'
 
 import { Helmet } from 'react-helmet'
 
-import Botonnormal from './Home/botonnormal'
+import Botonnormal from './botonnormal'
 
 import './Tomar.css'
 
 
 const Tomar = (props) => {
   return (
-    <div className="home-container">
-      
+    
+    <div className="home-containerf">      
       <Helmet>
         <title>E-Restaurant XXI</title>
         <meta property="og:title" content="Travel Agency" />
       </Helmet>
+      <div></div>
       <br></br>
-
-
-
-
-
-
-      <div id="postres" className="home-postres">
-        
+      
+      
+      <div id="postres" className="home-postres">       
         <h1>
           <span> Pedidos en Cola</span>
         </h1>
         <br>
         </br>
-<h1>
-        </h1>
-   
-        <div >
-  
+        <h1></h1>   
+        <div> 
         <div>
         <div>
   <style type="text/css" dangerouslySetInnerHTML={{__html: "\n.tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}\n.tg td{background-color:#E0FFEB;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#594F4F;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;\n  word-break:normal;}\n.tg th{background-color:#9DE0AD;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#493F3F;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;\n  padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n.tg .tg-0l6a{background-color:#C2FFD6;text-align:center;vertical-align:top}\n.tg .tg-0lax{text-align:left;vertical-align:top}\n.tg .tg-nrix{text-align:center;vertical-align:middle}\n.tg .tg-sjuo{background-color:#C2FFD6;text-align:left;vertical-align:top}\n" }} />
@@ -43,7 +36,7 @@ const Tomar = (props) => {
         <th className="tg-baqh">Pedido / Mesa Nro *</th>
         <th className="tg-0lax">Total</th>
         <th className="tg-0lax">Preparación</th>
-        <th className="tg-0lax">GarzÓn</th>
+        <th className="tg-0lax">Garzón</th>
         <th className="tg-nrix">Productos </th>
         <th className="tg-nrix">Cantidad</th>
         <th className="tg-0lax">Accion</th>
@@ -116,28 +109,22 @@ const Tomar = (props) => {
                   nombrecito="Tomar Pedido"
                   className="home-component2"
                 ></Botonnormal></td> 
-      </tr>
-    </tbody>
-  </table>
-
-
-  <div>
-    
-  </div>
-  
-</div>
-
+            </tr>
+          </tbody>
+        </table>
+        <div>  
+        </div>
+      </div>
 <br></br>
 <br></br>
 <br></br>
         </div>
         <br></br>
         </div>
-        <div>
-  <style type="text/css" dangerouslySetInnerHTML={{__html: "\n.tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}\n.tg td{background-color:#E0FFEB;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#594F4F;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;\n  word-break:normal;}\n.tg th{background-color:#9DE0AD;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#493F3F;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;\n  padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n.tg .tg-0l6a{background-color:#C2FFD6;text-align:center;vertical-align:top}\n.tg .tg-0lax{text-align:left;vertical-align:top}\n.tg .tg-nrix{text-align:center;vertical-align:middle}\n.tg .tg-sjuo{background-color:#C2FFD6;text-align:left;vertical-align:top}\n" }} />
+        <div className='tablados'>
+  <style type="text/css" dangerouslySetInnerHTML={{__html: "\n.tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}\n.tg td{background-color:#E0FFEB;border-bottom-width:1px;border-color:#9c2c54;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#594F4F;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;\n  word-break:normal;}\n.tg th{background-color:;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#493F3F;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;\n  padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n.tg .tg-0l6a{background-color:#C2FFD6;text-align:center;vertical-align:top}\n.tg .tg-0lax{text-align:left;vertical-align:top}\n.tg .tg-nrix{text-align:center;vertical-align:middle}\n.tg .tg-sjuo{background-color:#C2FFD6;text-align:left;vertical-align:top}\n" }} />
   <h1 className='uwu'>Pedidos Tomados:</h1>
   <table className="tg">
-    <h1></h1>
     <thead>
       <tr>
         <th className="tg-baqh">Pedido / Mesa Nro *</th>
@@ -203,8 +190,12 @@ const Tomar = (props) => {
   </table>
 </div>
 
-      </div>
-
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+     
+      </div >
       <footer className="home-footer">
         <img
           alt="logo"
@@ -226,11 +217,9 @@ const Tomar = (props) => {
           </svg>
         </div>
       </footer>
-
-
-
-
-    </div>
+      
+      </div>
+      
   )
 }
 

@@ -11,7 +11,7 @@ export const InternalMenu = () => {
   }
 
   return (
-    <>
+    <div className='chale'>
       <div className='body'>
         <div className='flex centered mt-30'>
           <div className="flex centered column" style={{height: '100%'}}>
@@ -31,7 +31,6 @@ export const InternalMenu = () => {
             <br></br>
             <button type="button" className='btn btn-danger' onClick={() => goTo('/reservation')}>Mantenedor de reservas</button>
             <br></br>
-            <button type="button" className='btn btn-primary mt-20' onClick={() => goTo('/vault')}>Bodega</button>
             <br></br>
             <br></br>
             <br></br>
@@ -44,6 +43,6 @@ export const InternalMenu = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
