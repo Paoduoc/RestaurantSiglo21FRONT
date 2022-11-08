@@ -32,7 +32,6 @@ export const DisheList = () => {
       _id: dishe._id
     })
     handleGetAllDishes()
-    console.log(response)
   }
 
   useEffect(() => {

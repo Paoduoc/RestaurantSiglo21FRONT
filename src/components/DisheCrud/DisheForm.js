@@ -47,7 +47,15 @@ export const DisheForm = ({
       price,
       preparation,
       preparationTime,
-      ingredients: ingredients.map(i => i.value),
+      description,
+      category,
+      image,
+      ingredients: ingredients.map((i, index) => {
+        return {
+          nom: i.value,
+          cant: ammounts[index]
+        }
+      }),
     })
     if (response.status >= 400 && response.status <= 499) {
       alert.show(response.description, {
@@ -64,7 +72,6 @@ export const DisheForm = ({
   }
 
   const handleChangeIngredients = (newValue, action) => {
-    console.log(action, newValue)
     if (action.action === 'remove-value') {
       // buscamos el indice del ingrediente
       const indexOfRemovedValue = ingredients.findIndex(obj => obj.value === action.removedValue.value)

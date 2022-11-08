@@ -27,12 +27,11 @@ export const TableList = () => {
   }
 
   const handleStatusTable = async (table) => {
-    const response = await enableTable({
+    await enableTable({
       status: !table.estado,
       _id: table._id
     })
     handleGetAllTables()
-    console.log(response)
   }
 
   useEffect(() => {

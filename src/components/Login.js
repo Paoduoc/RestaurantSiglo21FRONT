@@ -31,7 +31,6 @@ function Login() {
       })
     }).then(response => response.json())
       .then(response => {
-        console.log(response)
         if (response.status === 200) {
           dispatch(setUser(response.msg.usuario))
           dispatch(setToken(response.msg.token))

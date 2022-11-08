@@ -16,6 +16,7 @@ import { InternalMenu } from "./InternalMenu";
 import Login from "./Login";
 import  Tables  from "./Tables/Tables";
 import { setUser, setToken, logout } from "../store/slices/userSlice"
+import { setPlates } from "../store/slices/cartSlice"
 import { UserCrud } from './UserCrud/UserCrud';
 import { ProductCrud } from './ProductCrud/ProductCrud';
 import { DisheCrud } from './DisheCrud/DisheCrud';
@@ -38,6 +39,7 @@ export const Navigation = () => {
     const user = localStorage.getItem('user')
     // obtenemos el token
     const token = localStorage.getItem('token')
+    const cart = localStorage.getItem('cart')
     // lo agregamos al estado global de la app solo si existe en el localstorage
     if (user) {
       dispatch(setUser(JSON.parse(user)))
@@ -45,6 +47,9 @@ export const Navigation = () => {
     // lo mismo con el token
     if (token) {
       dispatch(setToken(JSON.parse(token)))
+    }
+    if (cart) {
+      dispatch(setPlates(JSON.parse(cart)))
     }
   }, [])
 

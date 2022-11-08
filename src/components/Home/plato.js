@@ -4,8 +4,11 @@ import ComprarPulsado from './comprar-pulsado'
 import './plato.css'
 import { addPlate, removePlate } from '../../store/slices/cartSlice'
 import { useDispatch } from 'react-redux'
+import { useAlert } from 'react-alert'
+
 
 const Plato = (props) => {
+  const alert = useAlert()
   const {
     imagen,
     nombrePlato,
@@ -15,13 +18,17 @@ const Plato = (props) => {
   } = props
   const dispatch = useDispatch()
   const handleAddPlate = () => {
-    console.log(props)
     dispatch(addPlate(props))
+    alert.show(`Plato agregado exitosamente!`, {
+      type: 'success'
+    })
   }
 
   const handleRemovePlate = () => {
-    console.log(props._id)
     dispatch(removePlate(props._id))
+    alert.show(`Plato removido exitosamente!`, {
+      type: 'success'
+    })
   }
 
   return (

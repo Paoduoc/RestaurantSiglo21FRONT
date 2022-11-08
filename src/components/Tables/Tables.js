@@ -14,7 +14,6 @@ const Tables = (props) => {
 
   const filterDisabledTables = (allTables) => {
     const enabledTables = allTables.filter(table => table.estado)
-    console.log(enabledTables)
     return enabledTables
   }
 
@@ -48,7 +47,6 @@ const Tables = (props) => {
 
   const filterOldReservations = () => {
     const activeReservations = allReservations.filter(reservation => {
-      console.log(reservation)
       if (reservation.reservada || reservation.sobrecupo) {
         return reservation
       }
@@ -88,24 +86,22 @@ const Tables = (props) => {
   
 
   const handleStartReservation = async (tableId) => {
-    const response = await startReservation({ tableId })
+    await startReservation({ tableId })
     const table = finalTablesState.find(table => table._id === tableId)
     table.reservada = true
   }
 
   const handleEndReservation = async (_id) => {
-    const response = await endReservation({
+    await endReservation({
       _id
     })
-    console.log(response)
   }
 
   const handlePutOvercrowding = async (_id, overcrowding) => {
-    const response = await putOvercrowding({
+    await putOvercrowding({
       _id,
       overcrowding
     })
-    console.log(response)
   }
 
   const tableStateClass = (table) => {

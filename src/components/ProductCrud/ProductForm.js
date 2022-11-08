@@ -12,9 +12,8 @@ export const ProductForm = ({
   _id,
   nombreProducto,
   tipo,
-  gramosDispo,
-  gramosMin,
-  gramosMax,
+  gramos,
+  cantidadMin,
   formType
 }) => {
   const dispatch = useDispatch()
@@ -22,9 +21,8 @@ export const ProductForm = ({
 
   const [name, setName] = useState(nombreProducto)
   const [type, setType] = useState(tipo)
-  const [gDispo, setGDispo] = useState(gramosDispo)
-  const [gMin, setGMin] = useState(gramosMin)
-  const [gMax, setGMax] = useState(gramosMax)
+  const [gDispo, setGDispo] = useState(gramos)
+  const [gMin, setGMin] = useState(cantidadMin)
   const [isLoading, setIsLoading] = useState(false)
 
   const updateAllProducts = async () => {
@@ -53,9 +51,7 @@ export const ProductForm = ({
       type,
       gDispo,
       gMin,
-      gMax,
     })
-    console.log(response)
     if (response.status >= 400 && response.status <= 499) {
       alert.show(response.description, {
         type: 'error'
@@ -77,20 +73,10 @@ export const ProductForm = ({
         <input className='form-control' type="text" value={name} onChange={(event) => setName(event.target.value)} />
         <label className='form-label'>Tipo</label>
         <input className='form-control' type="text" value={type} onChange={(event) => setType(event.target.value)} />
-        {
-          formType === 'create' ?
-            (
-              <div>
-                <label className='form-label'>Gramos Dispo</label>
-                <input className='form-control' type="text" value={gDispo} onChange={(event) => setGDispo(event.target.value)} />
-                <label className='form-label'>Gramos Min</label>
-                <input className='form-control' type="text" value={gMin} onChange={(event) => setGMin(event.target.value)} />
-                <label className='form-label'>Gramos Max</label>
-                <input className='form-control' type="text" value={gMax} onChange={(event) => setGMax(event.target.value)} />
-              </div>
-            ) :
-            <div></div>
-        }
+        <label className='form-label'>Gramos Dispo</label>
+        <input className='form-control' type="text" value={gDispo} onChange={(event) => setGDispo(event.target.value)} />
+        <label className='form-label'>Gramos Min</label>
+        <input className='form-control' type="text" value={gMin} onChange={(event) => setGMin(event.target.value)} />
         <button
           className={`btn btn-${formType === 'create' ? 'success' : 'warning'} mt-30`}
           onClick={() => handleAction()}

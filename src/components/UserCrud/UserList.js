@@ -25,12 +25,11 @@ export const UserList = () => {
   }
 
   const handleStatusUser = async (user) => {
-    const response = await enableUser({
+    await enableUser({
       status: !user.estatus,
       _id: user._id
     })
     handleGetAllUsers()
-    console.log(response)
   }
 
   useEffect(() => {

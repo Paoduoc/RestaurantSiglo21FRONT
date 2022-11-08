@@ -7,7 +7,6 @@ export const Vault = () => {
   const handleGetAllVaults = async () => {
     const response = await getAllVaults()
     setAllProducts(response.msg)
-    console.log(response)
   }
   useEffect(() => {
     handleGetAllVaults()
@@ -29,7 +28,7 @@ export const Vault = () => {
           allProducts.map((p, index) => (
             <tr key={ index }>
               <td>{ p.nombreProducto }</td>
-              <td>{ p.cantidad }</td>
+              <td>{ p.gramos }</td>
               <td>{ p.cantidadMin }</td>
               <td>{ p.estado ? 'Activo' : 'Inactivo' }</td>
             </tr>

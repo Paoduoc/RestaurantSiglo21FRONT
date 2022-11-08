@@ -36,12 +36,11 @@ export const ProductList = () => {
   }
 
   const handleStatusProduct = async (product) => {
-    const response = await enableProduct({
+    await enableProduct({
       status: !product.estado,
       _id: product._id
     })
     handleGetAllProducts()
-    console.log(response)
   }
 
   useEffect(() => {

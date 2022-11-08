@@ -25,16 +25,14 @@ export const createProduct = async ({
   type,
   gDispo,
   gMin,
-  gMax,
 }) => {
   try {
     const { data } = await axios.post(serviceApi, {
       nombreProducto: name,
       estado: true,
       tipo: type,
-      gramosDispo: gDispo,
-      gramosMin: gMin,
-      gramosMax: gMax,
+      gramos: parseInt(gDispo),
+      cantidadMin: parseInt(gMin),
     })
     return data
   } catch (error) {
@@ -48,11 +46,15 @@ export const editProduct = async ({
   _id,
   name,
   type,
+  gDispo,
+  gMin,
 }) => {
   try {
     const { data } = await axios.put(`${serviceApi}/${_id}`, {
       nombreProducto: name,
-      tipo: type
+      tipo: type,
+      gramos: parseInt(gDispo),
+      cantidadMin: parseInt(gMin),
     })
     return data
   } catch (error) {

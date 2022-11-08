@@ -31,6 +31,7 @@ export const createDishe = async ({
   image,
 }) => {
   try {
+    console.log(image)
     const { data } = await axios.post(serviceApi, {
       nombrePlato: name,
       estado: true,
@@ -57,14 +58,20 @@ export const editDishe = async ({
   preparation,
   preparationTime,
   price,
+  description,
+  category,
+  image,
 }) => {
   try {
     const { data } = await axios.put(`${serviceApi}/${_id}`, {
       nombrePlato: name,
+      descripcion: description,
+      categoria: category,
       ingredientes: ingredients,
       preparacion: preparation,
-      tiempoPreparacion: preparationTime,
+      minutosPreparacion: preparationTime,
       precio: price,
+      imagen: image
     })
     return data
   } catch (error) {

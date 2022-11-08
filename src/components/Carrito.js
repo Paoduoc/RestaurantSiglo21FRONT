@@ -6,12 +6,22 @@ import Botonnormal from './Home/botonnormal'
 import Plato from './Home/plato'
 
 import './Carrito.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useAlert } from 'react-alert'
+import { removeAllPlates } from '../store/slices/cartSlice'
 
 
 const Carrito = (props) => {
-
+  const dispatch = useDispatch()
+  const alert = useAlert()
   const { plates } = useSelector((state) => state.cart)
+
+  const handleRequestOrder = () => {
+    dispatch(removeAllPlates())
+    alert.show(`Pedido realizado exitosamente!`, {
+      type: 'success'
+    })
+  }
 
   return (
     <div className="carrito-container">
@@ -46,6 +56,7 @@ const Carrito = (props) => {
                 rootClassName="botonnormal-root-class-name"
                 nombrecito="Solicitar Pedido"
                 className="home-component2"
+                action={handleRequestOrder}
               ></Botonnormal>
             </div>
           </div>

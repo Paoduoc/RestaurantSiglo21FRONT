@@ -62,7 +62,6 @@ const Home = (props) => {
 
   const handleGetMenu = async () => {
     const response = await getMenu()
-    console.log(response)
     if (response.status === 201) {
       setMenu(response.msg)
     }
@@ -71,10 +70,6 @@ const Home = (props) => {
   useEffect(() => {
     handleGetMenu()
   }, [])
-
-  const handleAddPlate = () => {
-    
-  }
   
   
   return (

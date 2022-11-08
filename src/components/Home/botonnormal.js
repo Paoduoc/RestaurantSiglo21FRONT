@@ -7,7 +7,7 @@ import './botonnormal.css'
 const Botonnormal = (props) => {
   return (
     <div className={`botonnormal-container ${props.rootClassName} `}>
-      <button className="botonnormal-button button">{props.nombrecito}</button>
+      <button className="botonnormal-button button" onClick={props.action}>{props.nombrecito}</button>
     </div>
   )
 }
@@ -20,6 +20,7 @@ Botonnormal.defaultProps = {
 Botonnormal.propTypes = {
   rootClassName: PropTypes.string,
   nombrecito: PropTypes.string,
+  action: PropTypes.func
 }
 
 export default Botonnormal

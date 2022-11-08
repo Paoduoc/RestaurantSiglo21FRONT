@@ -9,7 +9,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     setPlates: (state, action) => {
-      state.plates = []
+      state.plates = action.payload
     },
     addPlate: (state, action) => {
       // aqui buscamos el plato por su id
@@ -24,6 +24,8 @@ export const cartSlice = createSlice({
           cantidad: 1
         })
       }
+      localStorage.setItem('cart', JSON.stringify(state.plates));
+
     },
     removePlate: (state, action) => {
       const plate = state.plates.find(p => p._id === action.payload)
@@ -35,9 +37,12 @@ export const cartSlice = createSlice({
         plate.cantidad --
       }
 
+      localStorage.setItem('cart', JSON.stringify(state.plates));
+
     },
     removeAllPlates: (state) => {
       state.plates = initialState.plates
+      localStorage.removeItem('cart')
     },
   },
 })
