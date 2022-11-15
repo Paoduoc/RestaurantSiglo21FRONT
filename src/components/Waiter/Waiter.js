@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
-import { getDishe } from '../services/disheService'
-import { getAllCommands } from '../services/commandService'
-import Botonnormal from './botonnormal'
-import './Tomar.css'
+import { getDishe } from '../../services/disheService'
+import { getAllCommands } from '../../services/commandService'
+import './Waiter.css'
 
-const Tomar = (props) => {
+const Waiter = (props) => {
 
   const [commands, setCommands] = useState([])
 
@@ -60,9 +59,7 @@ const Tomar = (props) => {
                   <tr>
                     <th className="tg-baqh">Pedido n°</th>
                     <th className="tg-0lax">Total</th>
-                    <th className="tg-0lax">Preparación</th>
                     <th className="tg-0lax">Nombre plato</th>
-                    <th className="tg-nrix">Productos </th>
                     <th className="tg-nrix">Cantidad</th>
                     <th className="tg-0lax">Estado</th>
                   </tr>
@@ -73,19 +70,8 @@ const Tomar = (props) => {
                       <tr>
                         <td className="tg-sjuo">{o.pedidoId}</td>
                         <td className="tg-sjuo">${o.plato?.precio}</td>
-                        <td className="tg-sjuo">{o.plato?.minutosPreparacion} minutos</td>
                         <td className="tg-sjuo">{o.plato?.nombrePlato}</td>
-                        <td className="tg-0l6a">
-                          <ul>
-                            {
-                              o.plato?.ingredientes.map(i => (
-                                <li>{i.nom}</li>
-                              ))
-                            }
-                          </ul>
-                        </td>
                         <td className="tg-0l6a">1</td>
-
                         <td className="tg-sjuo">{o.estadoPedido}</td>
                       </tr>
                     ))
@@ -135,4 +121,4 @@ const Tomar = (props) => {
   )
 }
 
-export default Tomar;
+export default Waiter;

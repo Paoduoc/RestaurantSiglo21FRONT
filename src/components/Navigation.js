@@ -24,6 +24,7 @@ import './Navigation.css'
 import { TableCrud } from './TableCrud/TableCrud';
 import Carrito from './Carrito.js';
 import {Vault} from './Vault/Vault';
+import Waiter from './Waiter/Waiter';
 
 
 
@@ -67,13 +68,11 @@ export const Navigation = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/internal-menu">Menu</NavLink>
+                <NavLink className="nav-link" to="/internal-menu">Menú interno</NavLink>
               </li>
+              
               <li className="nav-item">
-                <NavLink className="nav-link" to="/Tomar">Vista Cocina</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/pagar">Pagina Pagar</NavLink>
+                <NavLink className="nav-link" to="/pagar"> Ir a Pagar</NavLink>
               </li>
             </ul>
             
@@ -115,6 +114,7 @@ export const Navigation = () => {
         <Route path="/carrito" element={ <Carrito/> } />
         <Route path="/" element={ <Home/> } />
         <Route path="/vault" element={ <Vault/> } />
+        <Route path="/garzon" element={ <Waiter/> } />
       </Routes>
     </>
   )

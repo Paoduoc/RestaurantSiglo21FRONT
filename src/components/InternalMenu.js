@@ -20,7 +20,7 @@ export const InternalMenu = () => {
           <br></br>
           <br></br>
           <br></br>
-          <h1 className='Title'>Menu interno</h1>
+          <h1 className='Title'>Menú interno</h1>
             <button type="button" className='btn btn-danger' onClick={() => goTo('/user-crud')}>Mantenedor de usuarios</button>
             <br></br>
             <button type="button" className='btn btn-danger' onClick={() => goTo('/product-crud')}>Mantenedor de productos</button>
@@ -33,7 +33,9 @@ export const InternalMenu = () => {
             <br></br>
             <button type="button" className='btn btn-danger' onClick={() => goTo('/vault')}>Bodega</button>
             <br></br>
+            <button type="button" className='btn btn-danger' onClick={() => goTo('/tomar')}>Cocina</button>
             <br></br>
+            <button type="button" className='btn btn-danger' onClick={() => goTo('/garzon')}>Garzón</button>
             <br></br>
             <br></br>
             <br></br>

@@ -14,10 +14,17 @@ const Plato = (props) => {
     nombrePlato,
     descripcion,
     precio,
-    cantidad
+    cantidad,
+    cantP: cantidadMax
   } = props
   const dispatch = useDispatch()
   const handleAddPlate = () => {
+    if (cantidad >= cantidadMax) {
+      alert.show(`No puedes agregar mas platos`, {
+        type: 'error'
+      })
+      return
+    }
     dispatch(addPlate(props))
     alert.show(`Plato agregado exitosamente!`, {
       type: 'success'

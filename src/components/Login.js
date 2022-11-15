@@ -1,12 +1,15 @@
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { setUser, setToken } from '../store/slices/userSlice';
+import { useAlert } from 'react-alert'
 import './Login.css'
 
 function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const alert = useAlert()
 
   const [email, setEmail] = useState("pruebalogin@gmail.com")
   const [password, setPassword] = useState("1234")
@@ -36,6 +39,13 @@ function Login() {
           dispatch(setToken(response.msg.token))
           navigate("/internal-menu")
         }
+        if (response.status === 400) {
+          alert.show(response.msg,
+            {type: 'error'})
+        }
+      })
+      .catch(error=>{
+        console.log(error)
       })
   }
 

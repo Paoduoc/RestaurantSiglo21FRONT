@@ -9,6 +9,7 @@ import './Carrito.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert'
 import { removeAllPlates } from '../store/slices/cartSlice'
+import { createOrder } from '../services/orderService'
 
 
 const Carrito = (props) => {
@@ -16,11 +17,23 @@ const Carrito = (props) => {
   const alert = useAlert()
   const { plates } = useSelector((state) => state.cart)
 
-  const handleRequestOrder = () => {
-    dispatch(removeAllPlates())
-    alert.show(`Pedido realizado exitosamente!`, {
-      type: 'success'
-    })
+  const handleRequestOrder = async () => {
+    const disheIds = plates.map(p => {
+      const plateArr = Array(p.cantidad).fill({
+        id: p._id,
+        flag: true,
+        comentario: ''
+      })
+      return plateArr
+    }).flat(1)
+    const response = await createOrder({ disheIds })
+    console.log(response)
+    if (response.status === 201) {
+      dispatch(removeAllPlates())
+      alert.show(`Pedido realizado exitosamente!`, {
+        type: 'success'
+      })
+    }
   }
 
   return (

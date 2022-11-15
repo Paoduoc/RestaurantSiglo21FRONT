@@ -4,7 +4,7 @@ const serviceApi = 'platos'
 
 export const getDishe = async (id) => {
   try {
-    const { response } = await axios.get(`${serviceApi}/${id}`)
+    const response = await axios.get(`${serviceApi}/${id}`)
     return response.data
   } catch (error) {
     console.log(error)
