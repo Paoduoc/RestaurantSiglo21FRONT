@@ -81,8 +81,8 @@ const Home = (props) => {
       <Link className="lel" to="/carrito">Ver Carrito<span></span></Link>
 
       <div id="platos" className="home-platos">
-        <h1>Platos</h1>
-        <span className="home-text12">Nuestros platos</span>
+        <h1>Menú</h1>
+        <span className="home-text12">Nuestro menú</span>
         <div className="home-cards-container1">
           {
             menu.map(plato => (
