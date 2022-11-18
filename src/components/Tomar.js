@@ -35,7 +35,7 @@ const Tomar = (props) => {
 
   return (
 
-    <div className="home-containerf">
+    <div className="homecito">
       <Helmet>
         <title>E-Restaurant XXI</title>
         <meta property="og:title" content="Travel Agency" />
@@ -50,32 +50,16 @@ const Tomar = (props) => {
         </h1>
         <br>
         </br>
-        <h1></h1>
-        <div>
-          <div>
-            <div>
-              <style type="text/css" dangerouslySetInnerHTML={{ __html: "\n.tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}\n.tg td{background-color:#E0FFEB;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#594F4F;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;\n  word-break:normal;}\n.tg th{background-color:#9DE0AD;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#493F3F;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;\n  padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n.tg .tg-0l6a{background-color:#C2FFD6;text-align:center;vertical-align:top}\n.tg .tg-0lax{text-align:left;vertical-align:top}\n.tg .tg-nrix{text-align:center;vertical-align:middle}\n.tg .tg-sjuo{background-color:#C2FFD6;text-align:left;vertical-align:top}\n" }} />
-              <table className="tg">
-                <thead>
-                  <tr>
-                    <th className="tg-baqh">Pedido n°</th>
-                    <th className="tg-0lax">Total</th>
-                    <th className="tg-0lax">Preparación</th>
-                    <th className="tg-0lax">Nombre plato</th>
-                    <th className="tg-nrix">Productos </th>
-                    <th className="tg-nrix">Cantidad</th>
-                    <th className="tg-0lax">Estado</th>
-                  </tr>
-                </thead>
-                <tbody>
+        <table class="tftable" border="1">
+        <tr><th>Pedido N°</th><th>Total</th><th>Preparación</th><th>Nombre Plato</th><th>Productos</th><th>Cantidad</th><th>Estado</th><th>Comentarios</th></tr>
                   {
                     commands.map(o => (
                       <tr>
-                        <td className="tg-sjuo">{o.pedidoId}</td>
-                        <td className="tg-sjuo">${o.plato?.precio}</td>
-                        <td className="tg-sjuo">{o.plato?.minutosPreparacion} minutos</td>
-                        <td className="tg-sjuo">{o.plato?.nombrePlato}</td>
-                        <td className="tg-0l6a">
+                        <td>{o.pedidoId}</td>
+                        <td >${o.plato?.precio}</td>
+                        <td >{o.plato?.minutosPreparacion} minutos</td>
+                        <td >{o.plato?.nombrePlato}</td>
+                        <td >
                           <ul>
                             {
                               o.plato?.ingredientes.map(i => (
@@ -87,26 +71,11 @@ const Tomar = (props) => {
                         <td className="tg-0l6a">1</td>
 
                         <td className="tg-sjuo">{o.estadoPedido}</td>
+                        <td >Aqui va un comentario :v</td>
                       </tr>
                     ))
                   }
-
-                </tbody>
-              </table>
-              <div>
-              </div>
-            </div>
-            <br></br>
-            <br></br>
-            <br></br>
-          </div>
-          <br></br>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
+        </table>
       </div >
       <footer className="home-footer">
         <img

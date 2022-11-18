@@ -27,7 +27,10 @@ const VProveedores = (props) => {
           </div>
         </div>
       </div>
+      <br></br>
+      <br></br>
     </div>
+    <br></br>
     <div className='centrarfooter'>
     <footer className="home-footer">
         <img
