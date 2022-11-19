@@ -67,7 +67,7 @@ const Carrito = (props) => {
               <div>
                 <div>
                   <h4>Ingresa El numero de Mesa</h4>
-                <input type="numeric" id="numeric" name="Mesa"></input>
+                <input type="numbre" id="number" name="Mesa" className='cuadro'></input>
                 </div>
                 <br></br>
                 <h4>Total: ${plates.reduce((previousValue, currentValue) => previousValue + currentValue.precio * currentValue.cantidad, 0)}</h4>
