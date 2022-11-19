@@ -25,6 +25,7 @@ import { TableCrud } from './TableCrud/TableCrud';
 import Carrito from './Carrito.js';
 import {Vault} from './Vault/Vault';
 import Waiter from './Waiter/Waiter';
+import Boletas from './viewBoletas.js';
 
 
 
@@ -115,6 +116,7 @@ export const Navigation = () => {
         <Route path="/" element={ <Home/> } />
         <Route path="/vault" element={ <Vault/> } />
         <Route path="/garzon" element={ <Waiter/> } />
+        <Route path="/Boletas" element={ <Boletas/> } />
       </Routes>
     </>
   )

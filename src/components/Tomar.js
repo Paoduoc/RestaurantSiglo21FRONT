@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { getDishe } from '../services/disheService'
 import { getAllCommands } from '../services/commandService'
+import { getAllOrders } from '../services/orderService'
 import Botonnormal from './botonnormal'
 import './Tomar.css'
 
@@ -27,6 +28,9 @@ const Tomar = (props) => {
       return response.msg
     }
   }
+
+  
+  
 
   useEffect(() => {
     handleGetAllCommands()
@@ -71,7 +75,7 @@ const Tomar = (props) => {
                         <td className="tg-0l6a">1</td>
 
                         <td className="tg-sjuo">{o.estadoPedido}</td>
-                        <td >Aqui va un comentario :v</td>
+                        <td ></td>
                       </tr>
                     ))
                   }

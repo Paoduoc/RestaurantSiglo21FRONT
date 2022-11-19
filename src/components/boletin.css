@@ -1,0 +1,50 @@
+.boletin-container {
+  flex: 0 0 auto;
+  width: 260px;
+  height: 203px;
+  display: flex;
+  z-index: 100;
+  position: relative;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  margin-top: 10px;
+  transition: 0.3s;
+  align-items: center;
+  margin-left: 20px;
+  border-color: #ff0000;
+  border-style: solid;
+  border-width: 2px;
+  margin-right: 20px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url('https://img.freepik.com/foto-gratis/tono-blanco-espacio-diseno-fondo-textura-papel-arrugado-blanco_1258-78698.jpg?w=1380&t=st=1668885186~exp=1668885786~hmac=ab912aac55e10b192418adb5a183648dad069f1a992726ab418cb85cf74a4881');
+}
+.boletin-container:hover {
+  border-color: #994747;
+}
+.boletin-text {
+  color: #000000;
+}
+.boletin-text1 {
+  color: #000000;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+}
+.boletin-text2 {
+  color: #000000;
+}
+.boletin-text3 {
+  color: #000000;
+}
+.boletin-text4 {
+  color: #000000;
+}
+.boletin-text5 {
+  color: #000000;
+}
+.boletin-text6 {
+  color: #000000;
+}
