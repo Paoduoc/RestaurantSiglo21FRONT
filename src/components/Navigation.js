@@ -26,6 +26,7 @@ import Carrito from './Carrito.js';
 import {Vault} from './Vault/Vault';
 import Waiter from './Waiter/Waiter';
 import Boletas from './viewBoletas.js';
+import Caja from './MenuCaja.js';
 
 
 
@@ -117,6 +118,7 @@ export const Navigation = () => {
         <Route path="/vault" element={ <Vault/> } />
         <Route path="/garzon" element={ <Waiter/> } />
         <Route path="/Boletas" element={ <Boletas/> } />
+        <Route path="/MenuCaja" element={ <Caja/> } />
       </Routes>
     </>
   )
