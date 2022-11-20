@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import Button from 'react-bootstrap/Button'
 import { getDishe } from '../../services/disheService'
@@ -29,6 +29,9 @@ const Commands = ({editableStatus}) => {
       return response.msg
     }
   }
+
+  
+  
 
   useEffect(() => {
     handleGetAllCommands()

@@ -78,6 +78,7 @@
   justify-content: center;
   align-items: center;
   padding-left: 20px;
+  margin-left: 10px;
 }
 .home-component {
   text-decoration: none;
@@ -87,6 +88,7 @@
   display:flex;
   justify-content: center;
   align-items: center;
+  margin-left: 10px;
 }
 .home-component1 {
   text-decoration: none;
@@ -96,6 +98,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin: 10px;
 }
 .home-component2 {
   text-decoration: none;
@@ -120,6 +123,7 @@ a.lel{
   display:flex;
   justify-content: center;
   align-items: center;
+  margin-left: 800px;
   
  }
  a.lel span{

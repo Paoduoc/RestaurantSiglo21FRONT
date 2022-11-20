@@ -54,7 +54,7 @@ const Waiter = ({editableStatus}) => {
 
       <div id="postres" className="home-postres">
         <h1>
-          <span> Comandas </span>
+          <span> Comandas Garzon </span>
         </h1>
         <br>
         </br>
@@ -117,9 +117,7 @@ const Waiter = ({editableStatus}) => {
           </svg>
         </div>
       </footer>
-
     </div>
-
   )
 }
 

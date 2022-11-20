@@ -1,19 +1,10 @@
-
-.home-containerf {
-  width: 100%;
-  height: auto;
-  display: flex;
-  min-height: 100vh;
+.homecito{
+  padding: 5px 20px 20px 20px;
+  text-align: center;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 50px;
-  border-width: 1px;
-  flex-direction: column;
   justify-content: center;
-  background-image: url("https://img.freepik.com/fotos-premium/tabla-superior-vacia-producto-o-montaje-comida-fondo-moderno-sitio-cocina_67155-1212.jpg?w=900");
-  background-size: cover;
 }
+
 .home-top-container {
   width: 100%;
   padding-top: 20px;
@@ -296,4 +287,10 @@ a.lel{
 }
 .home-postres {
   text-align: center;
+  padding: 20px 20px 20px 20px;
 }
+.tftable {font-size:20px;color:#333333;width:100%;border-width: 1px;border-color: #bcaf91;border-collapse: collapse;}
+.tftable th {font-size:20px;background-color:#ded0b0;border-width: 1px;padding: 8px;border-style: solid;border-color: #bcaf91;text-align:left;}
+.tftable tr {background-color:#e9dbbb;}
+.tftable td {font-size:20px;border-width: 1px;padding: 8px;border-style: solid;border-color: #bcaf91; font-weight: bold;}
+.tftable tr:hover {background-color:#ffffff;}
