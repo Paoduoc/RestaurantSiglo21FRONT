@@ -12,3 +12,19 @@ export const getAllCommands = async () => {
   }
 }
 
+export const saveCommandStatus = async ({
+  _id,
+  status,
+}) => {
+  try {
+    const { data } = await axios.put(`${serviceApi}/${_id}`, {
+      estadoPedido: status,
+    })
+    return data
+  } catch (error) {
+    console.log(error)
+    return error?.response?.data
+  }
+  
+}
+

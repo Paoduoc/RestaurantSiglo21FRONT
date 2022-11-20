@@ -4,6 +4,7 @@ import productReducer from './slices/productSlice'
 import disheReducer from './slices/disheSlice'
 import tableReducer from './slices/tableSlice'
 import cartReducer from './slices/cartSlice'
+import commandReducer from './slices/commandSlice'
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     dishe: disheReducer,
     table: tableReducer,
     cart: cartReducer,
+    command: commandReducer,
   },
 })

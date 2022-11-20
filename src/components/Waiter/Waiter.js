@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
+import Button from 'react-bootstrap/Button'
 import { getDishe } from '../../services/disheService'
 import { getAllCommands } from '../../services/commandService'
 import './Waiter.css'
+import { CommandStatusDialog } from '../Commands/CommandStatusDialog'
+import { useDispatch, useSelector } from 'react-redux'
+import { setAllCommands, setModalOpen, setSelectedCommand } from '../../store/slices/commandSlice'
 
-const Waiter = (props) => {
-
-  const [commands, setCommands] = useState([])
+const Waiter = ({editableStatus}) => {
+  const dispatch = useDispatch()
+  const { allCommands } = useSelector((state) => state.command)
 
   const handleGetAllCommands = async () => {
     const response = await getAllCommands()
     if (response.status === 200) {
       for (let i = 0; i < response.msg.length; i++) {
         response.msg[i].plato = await handleGetDishe(response.msg[i])
-        console.log(response.msg[i])
       }
-      setCommands(response.msg)
+      dispatch(setAllCommands(response.msg))
     }
   }
 
@@ -30,11 +33,17 @@ const Waiter = (props) => {
   useEffect(() => {
     handleGetAllCommands()
   }, [])
-  
+
+  const handleModifyStatus = (selectedCommand) => {
+    console.log(selectedCommand)
+    dispatch(setSelectedCommand(selectedCommand))
+    dispatch(setModalOpen(true))
+  }
+
 
   return (
 
-    <div className="home-containerf">
+    <div className="homecito">
       <Helmet>
         <title>E-Restaurant XXI</title>
         <meta property="og:title" content="Travel Agency" />
@@ -49,51 +58,44 @@ const Waiter = (props) => {
         </h1>
         <br>
         </br>
-        <h1></h1>
-        <div>
-          <div>
-            <div>
-              <style type="text/css" dangerouslySetInnerHTML={{ __html: "\n.tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}\n.tg td{background-color:#E0FFEB;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#594F4F;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;\n  word-break:normal;}\n.tg th{background-color:#9DE0AD;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;\n  border-width:0px;color:#493F3F;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;\n  padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n.tg .tg-0l6a{background-color:#C2FFD6;text-align:center;vertical-align:top}\n.tg .tg-0lax{text-align:left;vertical-align:top}\n.tg .tg-nrix{text-align:center;vertical-align:middle}\n.tg .tg-sjuo{background-color:#C2FFD6;text-align:left;vertical-align:top}\n" }} />
-              <table className="tg">
-                <thead>
-                  <tr>
-                    <th className="tg-baqh">Pedido n°</th>
-                    <th className="tg-0lax">Total</th>
-                    <th className="tg-0lax">Nombre plato</th>
-                    <th className="tg-nrix">Cantidad</th>
-                    <th className="tg-0lax">Estado</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    commands.map(o => (
-                      <tr>
-                        <td className="tg-sjuo">{o.pedidoId}</td>
-                        <td className="tg-sjuo">${o.plato?.precio}</td>
-                        <td className="tg-sjuo">{o.plato?.nombrePlato}</td>
-                        <td className="tg-0l6a">1</td>
-                        <td className="tg-sjuo">{o.estadoPedido}</td>
-                      </tr>
-                    ))
-                  }
-
-                </tbody>
-              </table>
-              <div>
-              </div>
-            </div>
-            <br></br>
-            <br></br>
-            <br></br>
-          </div>
-          <br></br>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
+        <table className="tftable" border="1">
+          <thead>
+            <tr>
+              <th>Pedido N°</th>
+              <th>Nombre Plato</th>
+              <th>Cantidad</th>
+              <th>Estado</th>
+              <th>Comentario</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              allCommands.map((o, index) => (
+                <tr key={o.pedidoId + index}>
+                  <td>{o.pedidoId}</td>
+                  <td >{o.plato?.nombrePlato}</td>
+                  <td className="tg-0l6a">1</td>
+                  <td className="tg-sjuo">
+                    {o.estadoPedido}
+                    {
+                      editableStatus.includes(o.estadoPedido)
+                        ? <Button variant="warning" onClick={() => handleModifyStatus(o)}>Editar</Button>
+                        : <></>
+                    }
+                  </td>
+                  <td >Aqui va un comentario :v</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
       </div >
+      <CommandStatusDialog options={
+        [
+          'Entregado',
+          'Finalizado',
+        ]
+      } />
       <footer className="home-footer">
         <img
           alt="logo"

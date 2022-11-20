@@ -7,7 +7,6 @@ import {
   useNavigate
 } from "react-router-dom";
 import Home from "./Home/Home.js";
-import Tomar from "./Tomar";
 import VProveedores from "./vproveedores.js";
 import Pagar from "./pagar.js";
 
@@ -25,6 +24,7 @@ import { TableCrud } from './TableCrud/TableCrud';
 import Carrito from './Carrito.js';
 import {Vault} from './Vault/Vault';
 import Waiter from './Waiter/Waiter';
+import Commands from './Commands/Commands';
 
 
 
@@ -110,11 +110,21 @@ export const Navigation = () => {
         <Route path="/reservation" element={ <Tables/> } />
         <Route path="/vproveedores" element={ <VProveedores/> } />
         <Route path="/pagar" element={ <Pagar/> } />
-        <Route path="/Tomar" element={ <Tomar/> } />
+        <Route path="/commands" element={ 
+          <Commands editableStatus={[
+            'Pendiente',
+            'En preparacion',
+          ]}/>
+        } />
         <Route path="/carrito" element={ <Carrito/> } />
         <Route path="/" element={ <Home/> } />
         <Route path="/vault" element={ <Vault/> } />
-        <Route path="/garzon" element={ <Waiter/> } />
+        <Route path="/garzon" element={ 
+          <Waiter editableStatus={[
+            'Listo para entregar',
+            'Entregado',
+          ]}/>
+        } />
       </Routes>
     </>
   )

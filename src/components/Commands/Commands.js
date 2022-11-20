@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
-import { getDishe } from '../services/disheService'
-import { getAllCommands } from '../services/commandService'
-import Botonnormal from './botonnormal'
-import './Tomar.css'
+import Button from 'react-bootstrap/Button'
+import { getDishe } from '../../services/disheService'
+import { getAllCommands } from '../../services/commandService'
+import './Commands.css'
+import { CommandStatusDialog } from './CommandStatusDialog'
+import { useDispatch, useSelector } from 'react-redux'
+import { setAllCommands, setModalOpen, setSelectedCommand } from '../../store/slices/commandSlice'
 
-const Tomar = (props) => {
-
-  const [commands, setCommands] = useState([])
+const Commands = ({editableStatus}) => {
+  const dispatch = useDispatch()
+  const { allCommands } = useSelector((state) => state.command)
 
   const handleGetAllCommands = async () => {
     const response = await getAllCommands()
     if (response.status === 200) {
       for (let i = 0; i < response.msg.length; i++) {
         response.msg[i].plato = await handleGetDishe(response.msg[i])
-        console.log(response.msg[i])
       }
-      setCommands(response.msg)
+      dispatch(setAllCommands(response.msg))
     }
   }
 
@@ -31,7 +33,13 @@ const Tomar = (props) => {
   useEffect(() => {
     handleGetAllCommands()
   }, [])
-  
+
+  const handleModifyStatus = (selectedCommand) => {
+    console.log(selectedCommand)
+    dispatch(setSelectedCommand(selectedCommand))
+    dispatch(setModalOpen(true))
+  }
+
 
   return (
 
@@ -50,33 +58,58 @@ const Tomar = (props) => {
         </h1>
         <br>
         </br>
-        <table class="tftable" border="1">
-        <tr><th>Pedido N°</th><th>Total</th><th>Preparación</th><th>Nombre Plato</th><th>Productos</th><th>Cantidad</th><th>Estado</th><th>Comentarios</th></tr>
-                  {
-                    commands.map(o => (
-                      <tr>
-                        <td>{o.pedidoId}</td>
-                        <td >${o.plato?.precio}</td>
-                        <td >{o.plato?.minutosPreparacion} minutos</td>
-                        <td >{o.plato?.nombrePlato}</td>
-                        <td >
-                          <ul>
-                            {
-                              o.plato?.ingredientes.map(i => (
-                                <li>{i.nom}</li>
-                              ))
-                            }
-                          </ul>
-                        </td>
-                        <td className="tg-0l6a">1</td>
+        <table className="tftable" border="1">
+          <thead>
+            <tr>
+              <th>Pedido N°</th>
+              <th>Total</th>
+              <th>Preparación</th>
+              <th>Nombre Plato</th>
+              <th>Productos</th>
+              <th>Cantidad</th>
+              <th>Estado</th>
+              <th>Comentarios</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              allCommands.map((o, index) => (
+                <tr key={o.pedidoId + index}>
+                  <td>{o.pedidoId}</td>
+                  <td >${o.plato?.precio}</td>
+                  <td >{o.plato?.minutosPreparacion} minutos</td>
+                  <td >{o.plato?.nombrePlato}</td>
+                  <td >
+                    <ul>
+                      {
+                        o.plato?.ingredientes.map((i, ingIndex) => (
+                          <li key={o.pedidoId + index + ingIndex }>{i.nom}</li>
+                        ))
+                      }
+                    </ul>
+                  </td>
+                  <td className="tg-0l6a">1</td>
 
-                        <td className="tg-sjuo">{o.estadoPedido}</td>
-                        <td >Aqui va un comentario :v</td>
-                      </tr>
-                    ))
-                  }
+                  <td className="tg-sjuo">
+                    {o.estadoPedido}
+                    {
+                      editableStatus.includes(o.estadoPedido)
+                        ? <Button variant="warning" onClick={() => handleModifyStatus(o)}>Editar</Button>
+                        : <></>
+                    }
+                  </td>
+                  <td >Aqui va un comentario :v</td>
+                </tr>
+              ))
+            }
+          </tbody>
         </table>
       </div >
+      <CommandStatusDialog options={[
+        'Pendiente',
+        'En preparacion',
+        'Listo para entregar',
+      ]} />
       <footer className="home-footer">
         <img
           alt="logo"
@@ -104,4 +137,4 @@ const Tomar = (props) => {
   )
 }
 
-export default Tomar;
+export default Commands;
