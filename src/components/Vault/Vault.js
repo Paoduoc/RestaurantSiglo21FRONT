@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getAllVaults } from "../../services/vaultService"
-
+import './Vault.css'
 
 export const Vault = () => {
   const [allProducts, setAllProducts] = useState([])
@@ -14,6 +14,7 @@ export const Vault = () => {
   }, [])
   
   return (
+    <div className="container">
     <table className="table table-primary table-striped">
       <thead>
         <tr>
@@ -36,6 +37,7 @@ export const Vault = () => {
         }
       </tbody>
     </table>
+    </div>
   )
 
 }

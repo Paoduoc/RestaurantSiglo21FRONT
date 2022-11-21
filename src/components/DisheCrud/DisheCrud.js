@@ -3,7 +3,7 @@ import { DisheList } from './DisheList'
 import { useDispatch } from 'react-redux';
 import { setFormType, setModalCrudVisibility } from '../../store/slices/disheSlice';
 import { DisheDialog } from './DisheDialog';
-
+import './DisheCrud.css'
 export const DisheCrud = () => {
 
   const dispatch = useDispatch()
@@ -14,7 +14,7 @@ export const DisheCrud = () => {
   }
 
   return (
-    <>
+    <div className='container'>
       <div className='flex centered mt-30'>
         <div className="flex centered column">
           <h1>Mantenedor de platos</h1>
@@ -25,11 +25,11 @@ export const DisheCrud = () => {
         </div>
       </div>
       <div className='flex centered mt-30'>
-        <div className="flex centered column w-50" style={{'fontSize': '20px', 'color': 'white'}}>
+        <div className="columnas">
           <DisheList/>
         </div>
       </div>
       <DisheDialog/>
-    </>
+    </div>
   )
 }
