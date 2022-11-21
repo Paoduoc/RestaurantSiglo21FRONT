@@ -17,15 +17,15 @@ export const UserCrud = () => {
     <>
       <div className='flex centered mt-30'>
         <div className="flex centered column">
-          <h1>Mantenedor de usuario</h1>
+          <h1>Mantenedor de Usuarios</h1>
           <button
             type="button"
             className='btn btn-primary mt-20'
-            onClick={handleShow}>Crear usuario</button>
+            onClick={handleShow}>Crear Usuario</button>
         </div>
       </div>
       <div className='flex centered mt-30'>
-        <div className="flex centered column w-50" style={{'fontSize': '20px', 'color': 'white'}}>
+        <div className="centered column w-60" style={{'fontSize': '20px', 'color': 'white'}}>
           <UserList/>
         </div>
       </div>

@@ -90,7 +90,7 @@ export const UserForm = ({
         <input className='form-control' type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
         <label className='form-label'>Celular</label>
         <input className='form-control' type="text" value={phone} onChange={(event) => setPhone(event.target.value)} />
-        <label className='form-label'>Fecha de nacimiento</label>
+        <label className='form-label'>Fecha de Nacimiento</label>
         <DatePicker selected={birthdate} onChange={(date) => setBirthdate(date)} />
         <label className='form-label'>Genero</label>
         <select className="form-select" value={gender} onChange={(event) => setGender(event.target.value)}>
