@@ -6,16 +6,9 @@ import './viewBoletas.css'
 const ViewBoletas = (props) => {
   return (
     <div className="view-boletas-container">
+      <h1>Historial de Boletas</h1>
       <div className="view-boletas-container1">
-        <div className="view-boletas-container2">
-          <h1 className="view-boletas-text">Historial de Boletas</h1>
-          <div className="view-boletas-container3">
-            <Boletin></Boletin>
-            <Boletin></Boletin>
-          </div>
-          <div className="view-boletas-container4"></div>
-          <div className="view-boletas-container5"></div>
-        </div>
+        <Boletin rootClassName="boletin-root-class-name"></Boletin>
       </div>
     </div>
   )
