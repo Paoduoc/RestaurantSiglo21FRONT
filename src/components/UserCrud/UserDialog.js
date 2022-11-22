@@ -36,7 +36,7 @@ export const UserDialog = () => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{formType === 'create' ? 'Crear' : 'Editar'} usuario</Modal.Title>
+          <Modal.Title>{formType === 'create' ? 'Crear' : 'Editar'} Usuario</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <UserForm

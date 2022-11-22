@@ -27,6 +27,7 @@ import Waiter from './Waiter/Waiter';
 import Commands from './Commands/Commands';
 import Boletas from './viewBoletas.js';
 import Caja from './MenuCaja.js';
+import Reporteria from './Reporteria.js';
 
 
 
@@ -129,6 +130,7 @@ export const Navigation = () => {
         } />
         <Route path="/Boletas" element={ <Boletas/> } />
         <Route path="/MenuCaja" element={ <Caja/> } />
+        <Route path="/Reporteria" element={ <Reporteria/> } />
       </Routes>
     </>
   )
