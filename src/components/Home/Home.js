@@ -26,8 +26,6 @@ const Home = (props) => {
   useEffect(() => {
     handleGetMenu()
   }, [])
-
-
   
   
   return (
