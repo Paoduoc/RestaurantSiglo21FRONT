@@ -32,7 +32,7 @@ const Plato = (props) => {
   }
 
   const handleRemovePlate = () => {
-    dispatch(removePlate(props._id))
+    dispatch(removePlate(props))
     alert.show(`Plato removido exitosamente!`, {
       type: 'success'
     })

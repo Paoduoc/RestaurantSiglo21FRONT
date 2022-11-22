@@ -13,9 +13,12 @@ export const cartSlice = createSlice({
       state.plates = action.payload
     },
     addPlate: (state, action) => {
+      const category = action.payload.categoria
       // aqui buscamos el plato por su id
       const existPlate = state.plates.find(p => p._id === action.payload._id)
-      const existPlateMenu = state.menu.find(p => p._id === action.payload._id)
+      console.log(action.payload)
+      console.log(state.menu)
+      const existPlateMenu = state.menu[category].find(p => p._id === action.payload._id)
       if (existPlate) {
         // si el plato existe entonces solo sumamos la cantidad del plato seleccionado que se quiere comprar
         existPlate.cantidad++
@@ -32,12 +35,15 @@ export const cartSlice = createSlice({
 
     },
     removePlate: (state, action) => {
-      const plate = state.plates.find(p => p._id === action.payload)
-      const plateMenu = state.menu.find(p => p._id === action.payload)
+      const category = action.payload.categoria
+      console.log(action.payload)
+
+      const plate = state.plates.find(p => p._id === action.payload._id)
+      const plateMenu = state.menu[category].find(p => p._id === action.payload._id)
       console.log(plate)
 
       if (plate.cantidad === 1) {
-        state.plates = state.plates.filter(p => p._id !== action.payload)
+        state.plates = state.plates.filter(p => p._id !== action.payload._id)
         plateMenu.cantidad --
       } else {
         plate.cantidad --

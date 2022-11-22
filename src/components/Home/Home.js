@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
-
-
 import { Helmet } from 'react-helmet'
 
 import Botonnormal from './botonnormal'
@@ -84,7 +82,9 @@ const Home = (props) => {
         <span className="home-text12">Nuestro menú</span>
         {
           Object.keys(menu).map(key => (
-            <>
+            <div key={key} style={{ display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'}}>
               <h2>{key}</h2>
               <div className="home-cards-container1">
                 {
@@ -98,26 +98,10 @@ const Home = (props) => {
                   ))
                 }
               </div>
-            </>
+            </div>
           ))
         }
       </div>
-      {/* <div id="platos" className="home-platos">
-        <h1>Menú</h1>
-        <span className="home-text12">Nuestro menú</span>
-        <div className="home-cards-container1">
-          {
-            menu.map(plato => (
-              <Plato 
-                key={plato._id}
-                {
-                  ...plato
-                }
-              />
-            ))
-          }
-        </div>
-      </div> */}
     </div>
   )
 }
