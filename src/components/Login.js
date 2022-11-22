@@ -22,7 +22,7 @@ function Login() {
   }
   
   const login = () => {
-    fetch("http://localhost:8080/api/v1/auth/login", {
+    fetch("https://restaurantsiglo21.onrender.com/api/v1/auth/login", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
