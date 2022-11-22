@@ -13,7 +13,7 @@ import { setMenu } from '../../store/slices/cartSlice';
 
 
 const Home = (props) => {
-  const { plates, menu } = useSelector((state) => state.cart)
+  const { menu } = useSelector((state) => state.cart)
   const dispatch = useDispatch()
 
   const handleGetMenu = async () => {
@@ -26,6 +26,8 @@ const Home = (props) => {
   useEffect(() => {
     handleGetMenu()
   }, [])
+
+
   
   
   return (
@@ -79,8 +81,30 @@ const Home = (props) => {
       </div>
       <br></br>
       <Link className="lel" to="/carrito">Ver Carrito<span></span></Link>
-
       <div id="platos" className="home-platos">
+        <h1>Menú</h1>
+        <span className="home-text12">Nuestro menú</span>
+        {
+          Object.keys(menu).map(key => (
+            <>
+              <h2>{key}</h2>
+              <div className="home-cards-container1">
+                {
+                  menu[key]?.map(plato => (
+                    <Plato 
+                      key={plato._id}
+                      {
+                        ...plato
+                      }
+                    />
+                  ))
+                }
+              </div>
+            </>
+          ))
+        }
+      </div>
+      {/* <div id="platos" className="home-platos">
         <h1>Menú</h1>
         <span className="home-text12">Nuestro menú</span>
         <div className="home-cards-container1">
@@ -95,7 +119,7 @@ const Home = (props) => {
             ))
           }
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

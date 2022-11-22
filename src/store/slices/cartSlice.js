@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   plates: [],
-  menu: []
+  menu: {}
 }
 
 export const cartSlice = createSlice({
@@ -60,7 +60,11 @@ export const cartSlice = createSlice({
           p.cantidad = plate.cantidad
         }
       })
-      state.menu = info
+      const groupedMenu = {}
+      info.forEach(item => {
+        groupedMenu[item.categoria] ? groupedMenu[item.categoria].push(item) : groupedMenu[item.categoria] = [item]
+      })
+      state.menu = groupedMenu
     }
   },
 })
