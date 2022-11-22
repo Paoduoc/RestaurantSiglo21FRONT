@@ -1,0 +1,48 @@
+.App {
+  
+  min-height: 100vh;
+  color: white;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #fff;
+  color: black;
+  border-top: black 1px solid;
+  margin-top: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.centered {
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.column {
+  flex-direction: column;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}

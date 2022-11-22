@@ -1,0 +1,17 @@
+.Title{
+  color: rgb(255, 255, 255) !important;
+}
+.chale{
+  background-image: url("https://img.freepik.com/foto-gratis/vista-superior-comida-mexicana-fresca-mesa_23-2148614421.jpg?w=1380&t=st=1668397392~exp=1668397992~hmac=47881957513e68cd234314b822abc04c3c655884afb97c844001da28963cabb1");
+  background-color: rgb(255, 255, 255) !important;
+  background-size: cover ;
+  border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 25px;
+}
+.body {
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
